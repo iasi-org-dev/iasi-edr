@@ -1,0 +1,79 @@
+---
+id: EDR-00013
+title: "Persistir el conocimiento de ingeniería en artefactos y no en el chat"
+status: accepted
+area:
+  id: "00"
+  name: "General"
+created: 2026-08-30
+tags:
+  - "knowledge"
+  - "artifacts"
+  - "traceability"
+  - "agents"
+affects:
+  - "iasi"
+  - "inputs"
+  - "documentation"
+  - "agentics"
+related:
+  - "EDR-00008"
+  - "EDR-00010"
+supersedes: []
+superseded-by: []
+---
+
+# Persistir el conocimiento de ingeniería en artefactos y no en el chat
+
+## Contexto
+
+Durante el trabajo asistido por Sistemas Inteligentes es natural utilizar la conversación como espacio de análisis, exploración y toma de decisiones. Sin embargo, si el conocimiento relevante permanece únicamente en el chat, queda ligado a una sesión concreta y resulta difícil versionarlo, revisarlo, reutilizarlo, procesarlo o convertirlo en fuente de verdad para otros agentes y herramientas.
+
+Escribir una decisión en un documento puede requerir prácticamente el mismo esfuerzo que expresarla en una conversación, pero su valor operativo es muy distinto.
+
+## Decisión
+
+El chat se utilizará principalmente para **pensar, discutir y llegar a decisiones**.
+
+El conocimiento de ingeniería que deba persistir se registrará en documentos o artefactos explícitos, aunque su contenido sea mínimo.
+
+Los artefactos persistentes serán la fuente reutilizable para:
+
+- versionado;
+- trazabilidad;
+- revisión;
+- validación;
+- reutilización;
+- procesamiento automático;
+- rematerialización de outputs;
+- trabajo posterior de agentes y herramientas.
+
+El prompt o la conversación no se utilizarán como contenedor principal del conocimiento del proyecto.
+
+## Rationale
+
+La conversación es un excelente medio de elaboración, pero un mal mecanismo de persistencia estructurada.
+
+Un artefacto explícito permite separar el proceso mental que llevó a una decisión de la decisión que finalmente debe gobernar el sistema.
+
+Esto evita que un agente necesite reconstruir contexto histórico para conocer algo que ya fue decidido.
+
+## Alternativas consideradas
+
+### Mantener el conocimiento principal en prompts o conversaciones
+
+Se descarta porque dificulta versionado, trazabilidad, revisión y reutilización, y obliga a recuperar contexto conversacional para reproducir decisiones anteriores.
+
+### Documentar únicamente decisiones grandes
+
+Se descarta como regla general. Una decisión pequeña puede ser igualmente relevante para una ejecución posterior y su coste de persistencia puede ser mínimo.
+
+## Consecuencias
+
+Los proyectos IASI tenderán a disponer de más artefactos pequeños y explícitos.
+
+Los agentes deberán trabajar sobre esos artefactos como entradas de ingeniería, en lugar de depender de memoria conversacional implícita.
+
+La conversación seguirá siendo parte del proceso vivido y podrá conservarse en Journey u otros registros, pero no sustituirá al conocimiento persistido que gobierna el proyecto.
+
+> **La conversación sirve para pensar; los artefactos conservan lo decidido.**

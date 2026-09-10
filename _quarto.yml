@@ -1,0 +1,13 @@
+project:
+  type: book
+
+  pre-render:
+    - Rscript R/create-index.R
+
+profile:
+  default: html
+  group:
+    - [html, pdf]
+
+metadata-files:
+  - _book-structure.yml

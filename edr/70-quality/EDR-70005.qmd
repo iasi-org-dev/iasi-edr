@@ -1,0 +1,75 @@
+---
+id: EDR-70005
+title: "Separar contenido derivable y contenido de autor en artefactos regenerables"
+status: accepted
+area:
+  id: "70"
+  name: "Calidad"
+created: 2026-09-01
+tags:
+  - "derived-artifacts"
+  - "documentation"
+  - "regeneration"
+  - "author-content"
+affects:
+  - "documentation"
+  - "user-guides"
+  - "generation"
+  - "validation"
+related:
+  - "EDR-70003"
+  - "EDR-00013"
+supersedes: []
+superseded-by: []
+---
+
+# Separar contenido derivable y contenido de autor en artefactos regenerables
+
+## Contexto
+
+Algunos documentos pueden derivarse en gran medida del conocimiento estructurado de un proyecto, pero siguen necesitando aportaciones editoriales humanas: explicaciones, ejemplos, recomendaciones, troubleshooting, Tips & Tricks u otros contenidos que no deben perderse cuando el documento se regenere.
+
+Regenerar el documento completo desde cero destruiría esas aportaciones. Evitar la regeneración impediría mantener actualizada la parte derivable.
+
+## Decisión
+
+Los artefactos parcialmente derivables distinguirán explícitamente entre:
+
+- **contenido derivable**, que IASI puede regenerar a partir de fuentes de verdad;
+- **contenido de autor**, que se preserva y no se sobrescribe automáticamente.
+
+Cuando la tecnología utilizada lo permita, el contenido de autor se incorporará mediante mecanismos protegidos, como includes o secciones identificadas como autorales.
+
+Al regenerar un artefacto, IASI actualizará únicamente las partes derivables.
+
+Si cambia una dependencia que pueda afectar al contenido de autor, IASI no lo reescribirá automáticamente. Lo marcará como **afectado** o pendiente de revisión.
+
+## Rationale
+
+La generación automática y la edición humana no son alternativas excluyentes. Pueden coexistir si el ciclo de vida del artefacto distingue correctamente qué partes son derivables y quién tiene autoridad para modificarlas.
+
+El objetivo no es maximizar el porcentaje de generación automática, sino mantener coherencia sin destruir conocimiento editorial.
+
+## Alternativas consideradas
+
+### Regenerar siempre el documento completo
+
+Se descarta porque eliminaría o sobrescribiría aportaciones humanas no derivables.
+
+### Dejar de regenerar cuando exista contenido manual
+
+Se descarta porque convertiría una pequeña aportación humana en un bloqueo para mantener actualizado todo el artefacto.
+
+### Modificar automáticamente el contenido de autor cuando cambien sus dependencias
+
+Se descarta porque el sistema no debe asumir autoridad sobre contenido deliberadamente protegido.
+
+## Consecuencias
+
+Los generadores deberán conocer los límites entre contenido derivable y contenido de autor.
+
+La trazabilidad de dependencias permitirá detectar cuándo una parte protegida necesita revisión.
+
+Este patrón puede aplicarse a User Guides, Technical Guides y otros artefactos parcialmente materializables, no únicamente a documentación Quarto.
+
+> **Regenerar lo derivable; preservar lo autoral; señalar lo afectado.**

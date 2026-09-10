@@ -1,0 +1,71 @@
+---
+id: EDR-10009
+title: "Congelar iasi-home por cobertura y navegación, no por completitud de contenido"
+status: accepted
+area:
+  id: "10"
+  name: "Funcional"
+created: 2026-09-09
+tags:
+  - "iasi-home"
+  - "web"
+  - "navigation"
+  - "status"
+affects:
+  - "iasi-home"
+  - "menus"
+  - "documentation"
+related:
+  - "EDR-10001"
+  - "EDR-10002"
+supersedes: []
+superseded-by: []
+---
+
+# Congelar iasi-home por cobertura y navegación, no por completitud de contenido
+
+## Contexto
+
+Congelar la web podía interpretarse como terminar previamente todos los libros, productos, manuales, subproductos y demás contenidos que aparecen en ella.
+
+Ese criterio bloquearía indefinidamente la estabilización de `iasi-home`, ya que IASI continúa creciendo y muchas piezas estarán durante largos periodos en construcción.
+
+La web ya dispone de páginas de estado como `status/to-be-done` y `status/under-construction`, por lo que puede representar explícitamente contenido todavía incompleto sin ocultarlo ni romper la navegación.
+
+## Decisión
+
+`iasi-home` se considerará congelable cuando proporcione una **imagen global, suficientemente completa y navegable del ecosistema IASI**, aunque parte del contenido siga en construcción.
+
+Para congelar la web se exigirá que:
+
+- los menús y submenús representen las áreas relevantes del ecosistema;
+- los enlaces funcionen;
+- cada elemento importante tenga un destino razonable;
+- los elementos todavía no desarrollados puedan dirigir a páginas de estado;
+- la navegación permita comprender qué existe, qué se está construyendo y cómo encajan las piezas.
+
+No se exigirá que todas las páginas tengan el mismo nivel de profundidad ni que todos los productos o documentos estén terminados.
+
+## Rationale
+
+La web es una representación pública del sistema, no una prueba de que el sistema haya concluido su desarrollo.
+
+Mostrar correctamente una pieza en construcción es preferible a ocultarla, siempre que el visitante pueda entender su función y su estado.
+
+## Alternativas consideradas
+
+### Esperar a terminar cada elemento antes de mostrarlo
+
+Se descarta porque convertiría la congelación de la web en una dependencia de la finalización de todo IASI.
+
+### Mostrar únicamente las piezas terminadas
+
+Se descarta porque ofrecería una imagen mutilada del alcance real del ecosistema.
+
+## Consecuencias
+
+La prioridad inmediata de `iasi-home` pasa a ser la arquitectura de información, la navegación y la cobertura del ecosistema.
+
+Los estados `to-be-done` y `under-construction` forman parte legítima de la representación pública mientras correspondan al estado real de la pieza.
+
+> **Congelar la web significa congelar una representación coherente del sistema, no terminar el sistema.**

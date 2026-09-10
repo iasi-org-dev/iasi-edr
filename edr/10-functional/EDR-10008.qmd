@@ -1,0 +1,66 @@
+---
+id: EDR-10008
+title: "Distinguir productos y subproductos en iasi-home"
+status: accepted
+area:
+  id: "10"
+  name: "Funcional"
+created: 2026-09-09
+tags:
+  - "iasi-home"
+  - "products"
+  - "subproducts"
+  - "navigation"
+affects:
+  - "iasi-home"
+  - "products"
+  - "subproducts"
+related:
+  - "EDR-10002"
+  - "EDR-50003"
+supersedes: []
+superseded-by: []
+---
+
+# Distinguir productos y subproductos en iasi-home
+
+## Contexto
+
+IASI genera numerosas piezas durante su propia construcción. Algunas nacen únicamente como capacidades necesarias para el ecosistema. Otras, aunque también hayan sido creadas inicialmente para resolver necesidades internas, pueden adquirir autonomía y utilizarse fuera de IASI con los ajustes adecuados.
+
+Presentar todas esas piezas bajo una única categoría oculta una diferencia útil para entender el ecosistema.
+
+## Decisión
+
+`iasi-home` distinguirá entre **Productos** y **Subproductos**.
+
+Se utilizará el siguiente criterio:
+
+- **Subproductos**: cosas que IASI necesitó y creó durante su propia construcción.
+- **Productos**: cosas creadas originalmente para IASI que, con los ajustes necesarios, pueden vivir y ser utilizadas fuera de IASI como elementos autónomos.
+
+La diferencia no depende de quién motivó originalmente su creación, ya que ambas categorías pueden nacer de necesidades internas. La diferencia principal es su capacidad de adquirir vida propia fuera del ecosistema.
+
+En la navegación principal, **Productos** aparecerá antes que **Subproductos**.
+
+## Rationale
+
+La clasificación muestra primero las piezas con vocación de uso autónomo y después aquellas que explican cómo IASI se ha dotado de capacidades durante su desarrollo.
+
+También evita utilizar `Artefactos` como categoría de navegación para productos concretos, reservando ese término para su significado de ingeniería.
+
+## Alternativas consideradas
+
+### Mantener Artefactos como categoría principal
+
+Se descarta porque elementos como IASI Tools Dev, IASI RStudio, IASI Quarto o IASI Lua se perciben y se consumen mejor como productos que como artefactos metodológicos.
+
+### Considerar producto todo lo que IASI haya creado
+
+Se descarta porque eliminaría la diferencia entre capacidades internas surgidas durante la construcción y elementos que pueden emanciparse del ecosistema.
+
+## Consecuencias
+
+La navegación de `iasi-home` podrá presentar una imagen más clara de qué partes del ecosistema pueden utilizarse de forma autónoma y qué partes representan capacidades surgidas durante su construcción.
+
+La clasificación podrá evolucionar a medida que un subproducto adquiera suficiente autonomía para convertirse en producto.

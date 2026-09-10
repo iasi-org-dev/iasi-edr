@@ -1,0 +1,66 @@
+---
+id: EDR-00015
+title: "Separar roles, personas y puestos"
+status: accepted
+area:
+  id: "00"
+  name: "General"
+created: 2026-09-05
+tags:
+  - "roles"
+  - "organization"
+  - "responsibility"
+  - "governance"
+affects:
+  - "iasi"
+  - "teams"
+  - "methodology"
+related:
+  - "EDR-00014"
+supersedes: []
+superseded-by: []
+---
+
+# Separar roles, personas y puestos
+
+## Contexto
+
+Las estructuras organizativas suelen confundir tres conceptos diferentes: la función que debe existir, la persona que la desempeña y el puesto o recurso organizativo asignado para cubrirla.
+
+Esta confusión lleva a diseñar estructuras innecesariamente rígidas y a suponer que cada función requiere siempre una persona o puesto exclusivo.
+
+## Decisión
+
+IASI distinguirá explícitamente **rol**, **persona** y **puesto**.
+
+Los roles representan responsabilidades y puntos de vista que deben existir para que la ingeniería pueda realizarse correctamente.
+
+Una misma persona puede desempeñar varios roles y un mismo rol puede distribuirse entre varias personas según el contexto.
+
+Al tomar una decisión debe quedar claro desde qué rol se está actuando. El hecho de que una persona pueda ejercer varios roles no implica que deba mezclarlos de forma inconsciente en una misma decisión.
+
+La estructura organizativa concreta se adapta a los recursos disponibles sin eliminar las responsabilidades necesarias.
+
+## Rationale
+
+Definir primero los roles permite razonar sobre responsabilidades antes de convertirlas prematuramente en organigramas, puestos o necesidades de personal.
+
+Esto hace que el modelo sea aplicable tanto a equipos grandes como a proyectos pequeños donde una sola persona deba desempeñar varias funciones.
+
+## Alternativas consideradas
+
+### Asociar un rol a un puesto fijo
+
+Se descarta porque convierte una responsabilidad metodológica en una decisión organizativa contingente.
+
+### Permitir que una persona actúe simultáneamente desde varios roles sin distinguirlos
+
+Se descarta porque dificulta saber qué responsabilidad, criterio o autoridad está guiando una decisión.
+
+## Consecuencias
+
+Las descripciones metodológicas de IASI deberán identificar responsabilidades por rol y no exigir de forma innecesaria estructuras organizativas concretas.
+
+La asignación de personas y recursos podrá cambiar sin alterar la necesidad de las funciones fundamentales.
+
+> **Los roles son necesarios; los puestos y los recursos son contingentes.**

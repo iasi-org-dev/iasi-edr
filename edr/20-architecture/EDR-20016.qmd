@@ -1,0 +1,75 @@
+---
+id: EDR-20016
+title: "Declarar cada proyecto IASI mediante _iasi.yml"
+status: accepted
+area:
+  id: "20"
+  name: "Arquitectura"
+created: 2026-09-09
+tags:
+  - "project"
+  - "declaration"
+  - "configuration"
+  - "iasi-yml"
+affects:
+  - "iasi-projects"
+  - "iasi-quarto"
+  - "repositories"
+related:
+  - "EDR-20003"
+supersedes: []
+superseded-by: []
+---
+
+# Declarar cada proyecto IASI mediante _iasi.yml
+
+## Contexto
+
+Durante la reorganización de repositorios surgió la necesidad de distinguir entre un directorio que simplemente contiene archivos y un proyecto que IASI debe reconocer como unidad de ingeniería.
+
+También existía el directorio `.iasi/`, destinado a material de trabajo interno, lo que podía inducir a utilizarlo como marcador de identidad del proyecto.
+
+Sin embargo, el estado interno y la declaración persistente cumplen responsabilidades diferentes.
+
+## Decisión
+
+Todo proyecto IASI tendrá una declaración explícita mediante un archivo **`_iasi.yml`** situado en la raíz del proyecto.
+
+`_iasi.yml` define la identidad y configuración declarativa del proyecto.
+
+El directorio `.iasi/`, cuando exista, se reservará para estado interno o material de trabajo que pueda recrearse, descartarse o regenerarse.
+
+Por tanto:
+
+```text
+_iasi.yml   → declaración persistente del proyecto
+.iasi/      → estado y material interno de trabajo
+```
+
+Un repositorio que actúe además como ámbito raíz de varios proyectos podrá ser también un proyecto IASI y disponer de su propia declaración raíz.
+
+Los proyectos hijos mantienen sus propias declaraciones y su identidad independiente.
+
+## Rationale
+
+La identidad de un proyecto no debe depender de la existencia de cachés, índices, estado temporal u otros materiales internos.
+
+Una declaración explícita permite descubrir proyectos, validar configuración y combinar información de distintos ámbitos sin confundir identidad con estado de ejecución.
+
+## Alternativas consideradas
+
+### Utilizar `.iasi/` como marcador de proyecto
+
+Se descarta porque el directorio representa estado interno y puede ser regenerable o prescindible.
+
+### Inferir que existe un proyecto por la presencia de archivos de una tecnología concreta
+
+Se descarta porque un proyecto IASI no debe depender de Quarto, R, Java, Git u otra tecnología particular para ser reconocido.
+
+## Consecuencias
+
+Las herramientas IASI podrán descubrir proyectos buscando `_iasi.yml`.
+
+Un repositorio podrá contener proyectos IASI y otros elementos que no lo sean sin que la mera estructura de carpetas determine su identidad.
+
+Las configuraciones raíz y locales podrán combinarse cuando una operación necesite conocer ambos ámbitos.

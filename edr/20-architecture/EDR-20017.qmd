@@ -1,0 +1,104 @@
+---
+id: EDR-20017
+title: "Separar proyecto IASI, repositorio Git y release"
+status: accepted
+area:
+  id: "20"
+  name: "Arquitectura"
+created: 2026-09-09
+tags:
+  - "project"
+  - "repository"
+  - "release"
+  - "git"
+affects:
+  - "iasi-quarto"
+  - "repositories"
+  - "release"
+  - "publishing"
+related:
+  - "EDR-00012"
+  - "EDR-20016"
+  - "EDR-80005"
+supersedes: []
+superseded-by: []
+---
+
+# Separar proyecto IASI, repositorio Git y release
+
+## Contexto
+
+Un repositorio puede contener varios proyectos IASI: documentación, software y otros elementos independientes. Durante la implementación de `release` apareció la tentación de hacer que cada proyecto hijo conociese el repositorio que lo contiene y decidiese directamente dónde liberar sus artefactos.
+
+Esto mezcla tres ámbitos distintos:
+
+- el proyecto IASI;
+- el repositorio Git;
+- la colección liberada por el repositorio.
+
+## Decisión
+
+IASI distinguirá explícitamente esos tres ámbitos.
+
+Un **proyecto IASI** conoce su propia declaración, fuentes, outputs y operaciones locales. No necesita conocer qué repositorio Git lo contiene.
+
+El **repositorio Git** establece el ámbito de liberación conjunta. Una operación `release` deberá localizar la raíz Git correspondiente y operar desde ese ámbito.
+
+La **release** pertenece al repositorio y reúne los productos o proyectos liberables que éste publica como colección.
+
+Conceptualmente:
+
+```text
+repositorio Git
+├── _iasi.yml
+├── docs/
+│   └── user-guide/
+│       └── _iasi.yml
+├── software/
+│   └── producto/
+│       └── _iasi.yml
+└── release/
+```
+
+Si un proyecto hijo constituye a su vez un repositorio Git independiente, ese límite Git define un nuevo ámbito de release.
+
+## Configuración
+
+Cuando una operación necesite información del proyecto local y del repositorio que lo contiene, podrá combinar la configuración de ambos ámbitos.
+
+La configuración local describe el proyecto. La configuración raíz describe decisiones de ámbito común, como localizaciones o convenciones de release.
+
+La precedencia exacta podrá implementarse por capas, manteniendo la regla de que la configuración más específica pueda especializar los valores generales.
+
+## Rationale
+
+Un proyecto debe poder moverse entre repositorios o existir de forma independiente sin cambiar su identidad interna por razones de control de versiones.
+
+Al mismo tiempo, la release necesita conocer la colección completa que un repositorio publica y no únicamente el proyecto desde el que se lanzó una operación.
+
+## Alternativas consideradas
+
+### Hacer que cada proyecto hijo conozca su repositorio
+
+Se descarta porque acopla el proyecto a una ubicación y a una tecnología de control de versiones concreta.
+
+### Tratar release como operación puramente local del proyecto
+
+Se descarta porque no permite ensamblar de forma natural una publicación compuesta por varios proyectos del mismo repositorio.
+
+## Consecuencias
+
+`release` deberá descubrir la raíz Git de forma robusta antes de ensamblar la colección liberada.
+
+La estructura de `release/` será orientada a productos liberados y no una copia literal de las categorías internas del repositorio.
+
+Por ejemplo:
+
+```text
+release/
+├── index.html
+├── user-guide/
+└── producto/
+```
+
+La raíz de la release podrá incorporar artefactos propios de la colección, como un `index.html`, aunque esos artefactos no pertenezcan a ningún proyecto hijo concreto.
