@@ -21,3 +21,4 @@ Esta sección reúne los Engineering Decision Records clasificados en el área *
 | [EDR-00013](EDR-00013.qmd) | Persistir el conocimiento de ingeniería en artefactos y no en el chat |
 | [EDR-00014](EDR-00014.qmd) | Asociar el Sistema Inteligente al ingeniero y no al equipo |
 | [EDR-00015](EDR-00015.qmd) | Separar roles, personas y puestos |
+

@@ -15,3 +15,4 @@ Esta sección reúne los Engineering Decision Records clasificados en el área *
 | [EDR-10007](EDR-10007.qmd) | Proporcionar un agente IASI capaz de ejecutar trabajo sobre el workspace |
 | [EDR-10008](EDR-10008.qmd) | Distinguir productos y subproductos en iasi-home |
 | [EDR-10009](EDR-10009.qmd) | Congelar iasi-home por cobertura y navegación, no por completitud de contenido |
+

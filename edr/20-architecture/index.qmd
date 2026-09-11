@@ -23,3 +23,4 @@ Esta sección reúne los Engineering Decision Records clasificados en el área *
 | [EDR-20015](EDR-20015.qmd) | Usar OpenCode como base inicial de iasi-agent |
 | [EDR-20016](EDR-20016.qmd) | Declarar cada proyecto IASI mediante _iasi.yml |
 | [EDR-20017](EDR-20017.qmd) | Separar proyecto IASI, repositorio Git y release |
+

@@ -1,6 +1,7 @@
 book:
   chapters:
     - "index.qmd"
+    - "areas-edr.qmd"
     - part: "edr/00-general/index.qmd"
       chapters:
         - "edr/00-general/EDR-00001.qmd"
@@ -15,6 +16,9 @@ book:
         - "edr/00-general/EDR-00010.qmd"
         - "edr/00-general/EDR-00011.qmd"
         - "edr/00-general/EDR-00012.qmd"
+        - "edr/00-general/EDR-00013.qmd"
+        - "edr/00-general/EDR-00014.qmd"
+        - "edr/00-general/EDR-00015.qmd"
     - part: "edr/10-functional/index.qmd"
       chapters:
         - "edr/10-functional/EDR-10001.qmd"
@@ -24,6 +28,8 @@ book:
         - "edr/10-functional/EDR-10005.qmd"
         - "edr/10-functional/EDR-10006.qmd"
         - "edr/10-functional/EDR-10007.qmd"
+        - "edr/10-functional/EDR-10008.qmd"
+        - "edr/10-functional/EDR-10009.qmd"
     - part: "edr/20-architecture/index.qmd"
       chapters:
         - "edr/20-architecture/EDR-20001.qmd"
@@ -41,6 +47,8 @@ book:
         - "edr/20-architecture/EDR-20013.qmd"
         - "edr/20-architecture/EDR-20014.qmd"
         - "edr/20-architecture/EDR-20015.qmd"
+        - "edr/20-architecture/EDR-20016.qmd"
+        - "edr/20-architecture/EDR-20017.qmd"
     - part: "edr/30-constraints/index.qmd"
       chapters:
         - "edr/30-constraints/EDR-30001.qmd"
@@ -64,6 +72,7 @@ book:
         - "edr/70-quality/EDR-70002.qmd"
         - "edr/70-quality/EDR-70003.qmd"
         - "edr/70-quality/EDR-70004.qmd"
+        - "edr/70-quality/EDR-70005.qmd"
     - part: "edr/80-operation/index.qmd"
       chapters:
         - "edr/80-operation/EDR-80001.qmd"
@@ -72,4 +81,3 @@ book:
         - "edr/80-operation/EDR-80004.qmd"
         - "edr/80-operation/EDR-80005.qmd"
     - part: "edr/99-pending/index.qmd"
-    - "areas-edr.qmd"
