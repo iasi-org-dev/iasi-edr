@@ -1,3 +1,4 @@
+type: quarto
 publication:
   strategy: structured
   content-dir: edr
