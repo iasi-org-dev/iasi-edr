@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>40  Usar HTMLSlides para materializar Introducing IASI</title>
+<title>46  Usar Ubuntu Server 24.04 LTS en iasi-ai</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,8 +26,8 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/quarto-nav/headroom.min.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<link href="../../edr/20-architecture/EDR-20014.html" rel="next">
-<link href="../../edr/20-architecture/EDR-20012.html" rel="prev">
+<link href="../../edr/30-constraints/index.html" rel="next">
+<link href="../../edr/20-architecture/EDR-20018.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
@@ -130,10 +130,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../edr/20-architecture/index.html">Arquitectura</a></li>
-<li class="breadcrumb-item"><a href="../../edr/20-architecture/EDR-20013.html"><span class="chapter-number">40</span>  <span class="chapter-title">Usar HTMLSlides para materializar Introducing IASI</span></a></li>
+<li class="breadcrumb-item"><a href="../../edr/20-architecture/EDR-20019.html"><span class="chapter-number">46</span>  <span class="chapter-title">Usar Ubuntu Server 24.04 LTS en iasi-ai</span></a></li>
 </ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">40</span>  <span class="chapter-title">Usar HTMLSlides para materializar Introducing IASI</span>
+<span class="chapter-number">46</span>  <span class="chapter-title">Usar Ubuntu Server 24.04 LTS en iasi-ai</span>
 </h1>
 </div>
 
@@ -150,150 +150,57 @@ ul.task-list li input[type="checkbox"] {
 
 </header><div class="edr-meta">
 <div class="edr-meta-summary">
-<span class="edr-id">EDR-20013</span> · <span class="edr-area">Arquitectura</span> · <span class="edr-status">accepted</span> · <span class="edr-created">2026-08-30</span>
+<span class="edr-id">EDR-20019</span> · <span class="edr-area">Arquitectura</span> · <span class="edr-status">accepted</span> · <span class="edr-created">2026-09-13</span>
 </div>
 <div class="edr-tags">
-<span class="edr-tags-label">Tags</span> <code class="edr-tag">presentation</code> <code class="edr-tag">html</code> <code class="edr-tag">htmlslides</code> <code class="edr-tag">tooling</code> <code class="edr-tag">authoring</code>
+<span class="edr-tags-label">Tags</span> <code class="edr-tag">infra</code> <code class="edr-tag">iasi-ai</code> <code class="edr-tag">ubuntu</code> <code class="edr-tag">linux</code> <code class="edr-tag">ai</code> <code class="edr-tag">ollama</code>
 </div>
 </div>
-<section id="contexto" class="level2" data-number="40.1"><h2 data-number="40.1" class="anchored" data-anchor-id="contexto">
-<span class="header-section-number">40.1</span> Contexto</h2>
-<p>Una vez identificada la necesidad de crear una presentación de IASI apareció inmediatamente la cuestión de qué herramienta utilizar para materializarla.</p>
-<p>La primera reacción fue asumir <strong>PowerPoint</strong> y buscar la mejor forma de producir la presentación con esa tecnología. A partir de ahí se consideraron también otras herramientas de presentación.</p>
-<p>Ese enfoque reveló un problema metodológico: se estaba seleccionando una solución antes de terminar de definir la necesidad.</p>
-<p>Esto contradecía un principio fundamental de IASI:</p>
-<blockquote class="blockquote">
-<p>No partir de una herramienta o metodología y preguntar cómo resolver el problema con ella. Partir de la necesidad y evaluar después qué solución la satisface mejor.</p>
-</blockquote>
-<p>Se volvió por tanto a la necesidad.</p>
-<p>La presentación debía:</p>
-<ul>
-<li>seguir siendo una <strong>presentación</strong>, no convertirse en un sitio web ni en documentación;</li>
-<li>permitir una narrativa progresiva y controlada;</li>
-<li>ser extremadamente limpia y visual;</li>
-<li>permitir interacción y revelado progresivo cuando resulte útil;</li>
-<li>ofrecer control completo sobre el lenguaje visual de IASI;</li>
-<li>poder mantenerse como un artefacto textual, versionable y reproducible;</li>
-<li>poder ser leído y modificado por agentes dentro del workspace;</li>
-<li>evitar que la identidad visual quede determinada por la herramienta utilizada;</li>
-<li>poder ejecutarse y distribuirse con la menor dependencia posible de un entorno de autoría específico.</li>
-</ul>
-<p>Con estos criterios se reevaluaron las alternativas.</p>
-</section><section id="decisión" class="level2" data-number="40.2"><h2 data-number="40.2" class="anchored" data-anchor-id="decisión">
-<span class="header-section-number">40.2</span> Decisión</h2>
-<p>La presentación <strong>Introducing IASI</strong> se materializará inicialmente mediante <strong>HTMLSlides</strong>.</p>
-<p>HTMLSlides se utilizará como infraestructura de presentación y renderer, no como definición del lenguaje visual de IASI.</p>
-<p>El diseño, la tipografía, la composición, los diagramas y el resto de decisiones visuales pertenecen a IASI y deberán poder expresarse posteriormente mediante otros renderers cuando sea necesario.</p>
-<p>La salida principal será una presentación HTML ejecutable en navegador y mantenida como artefacto versionable dentro del proyecto.</p>
-</section><section id="alternativas-consideradas" class="level2" data-number="40.3"><h2 data-number="40.3" class="anchored" data-anchor-id="alternativas-consideradas">
-<span class="header-section-number">40.3</span> Alternativas consideradas</h2>
-<section id="powerpoint" class="level3" data-number="40.3.1"><h3 data-number="40.3.1" class="anchored" data-anchor-id="powerpoint">
-<span class="header-section-number">40.3.1</span> PowerPoint</h3>
-<p><strong>Ventajas</strong></p>
-<ul>
-<li>Herramienta ampliamente conocida y utilizada.</li>
-<li>Muy buen soporte para edición manual de slides.</li>
-<li>Flujo de presentación maduro.</li>
-<li>Amplias capacidades gráficas, de animación y composición.</li>
-<li>Buena interoperabilidad en contextos corporativos.</li>
-</ul>
-<p><strong>Inconvenientes</strong></p>
-<ul>
-<li>El formato de autoría no es especialmente adecuado para inspección y edición textual.</li>
-<li>El control de versiones y la revisión de cambios son menos naturales que sobre fuentes de texto.</li>
-<li>La automatización y modificación por agentes introduce una capa adicional de herramientas.</li>
-<li>Favorece un flujo de trabajo centrado en la herramienta de edición.</li>
-<li>La decisión inicial de usar PowerPoint se había tomado antes de definir correctamente la necesidad.</li>
-</ul>
-<p><strong>Resultado</strong></p>
-<p>Descartado como tecnología principal para esta presentación. Puede seguir siendo útil para materializaciones o casos concretos futuros.</p>
-</section><section id="gamma" class="level3" data-number="40.3.2"><h3 data-number="40.3.2" class="anchored" data-anchor-id="gamma">
-<span class="header-section-number">40.3.2</span> Gamma</h3>
-<p><strong>Ventajas</strong></p>
-<ul>
-<li>Generación rápida de presentaciones con asistencia de IA.</li>
-<li>Buenos resultados visuales iniciales con poco trabajo.</li>
-<li>Publicación y compartición web sencillas.</li>
-<li>Reduce considerablemente el esfuerzo de composición inicial.</li>
-</ul>
-<p><strong>Inconvenientes</strong></p>
-<ul>
-<li>Introduce dependencia de un servicio externo y de su flujo de trabajo.</li>
-<li>Parte de la lógica de autoría y presentación queda controlada por la plataforma.</li>
-<li>Menor control sobre una fuente canónica completamente gobernada por IASI.</li>
-<li>La reproducibilidad y evolución mediante el workspace son menos directas.</li>
-<li>Sus decisiones visuales y de composición pueden condicionar el lenguaje visual de IASI.</li>
-</ul>
-<p><strong>Resultado</strong></p>
-<p>Descartado porque optimiza la generación de presentaciones, pero proporciona menos control sobre el artefacto y su proceso de ingeniería.</p>
-</section><section id="prezi" class="level3" data-number="40.3.3"><h3 data-number="40.3.3" class="anchored" data-anchor-id="prezi">
-<span class="header-section-number">40.3.3</span> Prezi</h3>
-<p><strong>Ventajas</strong></p>
-<ul>
-<li>Narrativa visual diferenciada.</li>
-<li>Permite relaciones espaciales y navegación no lineal.</li>
-<li>Puede producir presentaciones visualmente muy expresivas.</li>
-</ul>
-<p><strong>Inconvenientes</strong></p>
-<ul>
-<li>Su modelo de navegación condiciona fuertemente la narrativa.</li>
-<li>El movimiento y la estructura espacial no son una necesidad de Introducing IASI.</li>
-<li>Introduce dependencia de una plataforma y un formato de autoría específicos.</li>
-<li>Resulta menos natural como artefacto textual y versionable dentro del workspace.</li>
-</ul>
-<p><strong>Resultado</strong></p>
-<p>Descartado porque su principal ventaja no responde a una necesidad identificada y añadiría una forma narrativa impuesta por la herramienta.</p>
-</section><section id="html-desarrollado-específicamente-para-la-presentación" class="level3" data-number="40.3.4"><h3 data-number="40.3.4" class="anchored" data-anchor-id="html-desarrollado-específicamente-para-la-presentación">
-<span class="header-section-number">40.3.4</span> HTML desarrollado específicamente para la presentación</h3>
-<p><strong>Ventajas</strong></p>
-<ul>
-<li>Control completo sobre presentación, comportamiento y lenguaje visual.</li>
-<li>Fuente textual y directamente versionable.</li>
-<li>Ejecución universal mediante navegador.</li>
-<li>Fácil integración con agentes y herramientas del workspace.</li>
-<li>Posibilidad de generar un único artefacto HTML autocontenido.</li>
-</ul>
-<p><strong>Inconvenientes</strong></p>
-<ul>
-<li>Obliga a construir y mantener desde cero comportamiento propio de una presentación.</li>
-<li>Navegación, ajuste al viewport, teclado, notas, progresión y otras capacidades básicas pasarían a ser responsabilidad del proyecto.</li>
-<li>Introduciría infraestructura propia antes de demostrar que realmente es necesaria.</li>
-</ul>
-<p><strong>Resultado</strong></p>
-<p>La aproximación HTML se considera adecuada, pero se evita construir desde cero la infraestructura que ya puede proporcionar una solución especializada.</p>
-</section><section id="htmlslides" class="level3" data-number="40.3.5"><h3 data-number="40.3.5" class="anchored" data-anchor-id="htmlslides">
-<span class="header-section-number">40.3.5</span> HTMLSlides</h3>
-<p><strong>Ventajas</strong></p>
-<ul>
-<li>Mantiene HTML como fuente y como materialización natural.</li>
-<li>Permite trabajar con archivos textuales, versionables e inspeccionables.</li>
-<li>Puede ser leído y modificado directamente por agentes.</li>
-<li>Proporciona una estructura específica de slides y capacidades básicas de presentación.</li>
-<li>Se ejecuta directamente en navegador.</li>
-<li>Permite producir una presentación autocontenida con muy pocas dependencias.</li>
-<li>Conserva un alto grado de control sobre HTML, CSS y comportamiento.</li>
-<li>No obliga a adoptar una identidad visual concreta.</li>
-<li>Permite que el lenguaje visual de IASI se defina independientemente del renderer.</li>
-</ul>
-<p><strong>Inconvenientes</strong></p>
-<ul>
-<li>Tiene un ecosistema y una madurez menores que PowerPoint.</li>
-<li>Requiere trabajo propio de diseño y CSS.</li>
-<li>Algunas capacidades avanzadas deberán implementarse o adaptarse cuando aparezca la necesidad.</li>
-<li>La interoperabilidad directa con formatos tradicionales de presentación no es su objetivo principal.</li>
-</ul>
-<p><strong>Resultado</strong></p>
-<p>Seleccionado porque proporciona suficiente infraestructura de presentación sin apropiarse del diseño ni del proceso de ingeniería.</p>
-</section></section><section id="consecuencias" class="level2" data-number="40.4"><h2 data-number="40.4" class="anchored" data-anchor-id="consecuencias">
-<span class="header-section-number">40.4</span> Consecuencias</h2>
-<p><code>introducing-iasi</code> tendrá como materialización principal una presentación HTML basada en HTMLSlides.</p>
-<p>El contenido, la narrativa y el lenguaje visual permanecen bajo control de IASI.</p>
-<p>HTMLSlides se considera un renderer sustituible. La presentación no debe diseñarse conceptualmente alrededor de las limitaciones o convenciones propias de HTMLSlides.</p>
-<p>La elección permite mantener la presentación como artefacto textual, reproducible, versionable y accesible a agentes dentro del workspace.</p>
-<p>La decisión podrá revisarse si las necesidades reales de la presentación dejan de estar bien cubiertas por HTMLSlides. La herramienta es consecuencia de la necesidad, no una restricción impuesta al problema.</p>
+<section id="usar-ubuntu-server-24.04-lts-en-iasi-ai" class="level1" data-number="47"><h1 data-number="47">
+<span class="header-section-number">47</span> Usar Ubuntu Server 24.04 LTS en iasi-ai</h1>
+<section id="contexto" class="level2" data-number="47.1"><h2 data-number="47.1" class="anchored" data-anchor-id="contexto">
+<span class="header-section-number">47.1</span> Contexto</h2>
+<p><code>iasi-ai</code> será el nodo estable dedicado al runtime local de Sistemas Inteligentes de IASI. Su responsabilidad incluirá la ejecución de modelos e infraestructura asociada, inicialmente mediante Ollama, y podrá incorporar capacidades de inferencia acelerada y otros servicios relacionados con IA.</p>
+<p>Este nodo tiene requisitos diferentes de <code>iasi-tools</code>. Además de estabilidad como servidor, debe reducir fricción en componentes especialmente sensibles al sistema operativo y al kernel, como drivers, GPU, runtimes de cómputo, contenedores acelerados y herramientas del ecosistema de IA.</p>
+<p>Para el sistema operativo se consideraron principalmente <strong>Debian Server</strong> y <strong>Ubuntu Server</strong>.</p>
+</section><section id="decisión" class="level2" data-number="47.2"><h2 data-number="47.2" class="anchored" data-anchor-id="decisión">
+<span class="header-section-number">47.2</span> Decisión</h2>
+<p><code>iasi-ai</code> utilizará <strong>Ubuntu Server 24.04 LTS</strong> como sistema operativo de referencia.</p>
+<p>La instalación será sin entorno gráfico y orientada a ejecución de servicios. Ollama, modelos y demás runtimes se desplegarán sobre esta base, manteniendo separados el sistema operativo y las capacidades concretas de IA instaladas sobre él.</p>
+<p>La posibilidad de utilizar GPU no cambia la identidad del nodo ni obliga a introducir una distribución especializada de IA.</p>
+</section><section id="rationale" class="level2" data-number="47.3"><h2 data-number="47.3" class="anchored" data-anchor-id="rationale">
+<span class="header-section-number">47.3</span> Rationale</h2>
+<p>En <code>iasi-ai</code> la elección de Ubuntu Server no responde únicamente a homogeneizar la infraestructura.</p>
+<p>El ecosistema de IA en Linux tiende a ofrecer abundante documentación, paquetes, ejemplos y procedimientos operativos sobre Ubuntu. Esto reduce riesgo y trabajo incidental al integrar drivers, aceleración, contenedores y runtimes de inferencia.</p>
+<p>Debian también puede ejecutar estas tecnologías, pero no aporta una ventaja específica para IASI que justifique aceptar más fricción precisamente en el nodo donde la compatibilidad del ecosistema resulta más importante.</p>
+<p>Utilizar Ubuntu Server 24.04 LTS aporta además coherencia con <code>iasi-tools</code>, permitiendo compartir la base operativa sin mezclar las responsabilidades de ambos servidores.</p>
+<p>La elección de 24.04 LTS prioriza una plataforma madura frente a adoptar una versión más reciente únicamente por novedad.</p>
+</section><section id="alternativas-consideradas" class="level2" data-number="47.4"><h2 data-number="47.4" class="anchored" data-anchor-id="alternativas-consideradas">
+<span class="header-section-number">47.4</span> Alternativas consideradas</h2>
+<section id="debian-server" class="level3" data-number="47.4.1"><h3 data-number="47.4.1" class="anchored" data-anchor-id="debian-server">
+<span class="header-section-number">47.4.1</span> Debian Server</h3>
+<p>Es técnicamente viable y podría proporcionar una base más mínima.</p>
+<p>Se descarta porque <code>iasi-ai</code> se beneficia especialmente de seguir el camino más habitual del ecosistema Linux de IA y aceleración. La reducción marginal de componentes no compensa una posible mayor fricción de integración y soporte.</p>
+</section><section id="ubuntu-server-26.04-lts" class="level3" data-number="47.4.2"><h3 data-number="47.4.2" class="anchored" data-anchor-id="ubuntu-server-26.04-lts">
+<span class="header-section-number">47.4.2</span> Ubuntu Server 26.04 LTS</h3>
+<p>Puede convertirse en una plataforma adecuada más adelante, pero no existe una necesidad actual que justifique mover el runtime estable de IA a una base más reciente.</p>
+<p>La actualización se evaluará cuando aporte una ventaja concreta o cuando el ciclo de vida de 24.04 lo aconseje.</p>
+</section><section id="distribución-especializada-para-ia-o-gpu" class="level3" data-number="47.4.3"><h3 data-number="47.4.3" class="anchored" data-anchor-id="distribución-especializada-para-ia-o-gpu">
+<span class="header-section-number">47.4.3</span> Distribución especializada para IA o GPU</h3>
+<p>Se descarta como plataforma base porque acoplaría innecesariamente la infraestructura a un stack concreto.</p>
+<p><code>iasi-ai</code> debe seguir siendo un servidor Linux general sobre el que puedan cambiar Ollama, modelos, drivers, runtimes o tecnologías de inferencia sin redefinir el nodo completo.</p>
+</section><section id="ejecutar-el-runtime-de-ia-en-iasi-tools" class="level3" data-number="47.4.4"><h3 data-number="47.4.4" class="anchored" data-anchor-id="ejecutar-el-runtime-de-ia-en-iasi-tools">
+<span class="header-section-number">47.4.4</span> Ejecutar el runtime de IA en iasi-tools</h3>
+<p>Se descarta porque herramientas de ingeniería y ejecución de modelos tienen perfiles de recursos, dependencias y ciclos de cambio diferentes. Mantenerlos separados permite evolucionar, reiniciar, dimensionar o experimentar con el runtime de IA sin afectar a los servicios de herramientas.</p>
+</section></section><section id="consecuencias" class="level2" data-number="47.5"><h2 data-number="47.5" class="anchored" data-anchor-id="consecuencias">
+<span class="header-section-number">47.5</span> Consecuencias</h2>
+<p><code>iasi-ai</code> constituye un nodo propio de la infraestructura estable y no una extensión de <code>iasi-tools</code>.</p>
+<p>IASI podrá compartir con <code>iasi-tools</code> la base de administración Ubuntu Server, mientras conserva independientes los servicios, dependencias, dimensionamiento y ciclo de vida de cada nodo.</p>
+<p>La integración de GPU, si se incorpora, deberá documentarse como capacidad del nodo y no como propiedad esencial del sistema operativo elegido.</p>
+<p>Los cambios de runtime de IA podrán producirse sin alterar esta decisión mientras Ubuntu Server siga proporcionando una base adecuada para su ejecución.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -693,13 +600,13 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../edr/20-architecture/EDR-20012.html" class="pagination-link" aria-label="Separar el entorno de laboratorios mediante una máquina virtual dedicada">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">39</span>  <span class="chapter-title">Separar el entorno de laboratorios mediante una máquina virtual dedicada</span></span>
+      <a href="../../edr/20-architecture/EDR-20018.html" class="pagination-link" aria-label="Usar Ubuntu Server 24.04 LTS en iasi-tools">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">45</span>  <span class="chapter-title">Usar Ubuntu Server 24.04 LTS en iasi-tools</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../edr/20-architecture/EDR-20014.html" class="pagination-link" aria-label="Mantener iasi-agent como proyecto separado de IASI">
-        <span class="nav-page-text"><span class="chapter-number">41</span>  <span class="chapter-title">Mantener iasi-agent como proyecto separado de IASI</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../edr/30-constraints/index.html" class="pagination-link" aria-label="Constraints">
+        <span class="nav-page-text">Constraints</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

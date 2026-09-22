@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>41&nbsp; Usar OpenCode como base inicial de iasi-agent</title>
+<title>42  Usar OpenCode como base inicial de iasi-agent</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,26 +25,12 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
-
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/quarto-nav/headroom.min.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../edr/20-architecture/EDR-20016.html" rel="next">
 <link href="../../edr/20-architecture/EDR-20014.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-5373981de1c9cfd68d208868f8f26ae6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -73,18 +57,12 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
-
-
+}</script><style>html{ scroll-behavior: smooth; }</style>
 </head>
-
 <body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">IASI EDR</span>
@@ -96,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
@@ -141,23 +119,22 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Pendientes</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../edr/20-architecture/index.html">Arquitectura</a></li><li class="breadcrumb-item"><a href="../../edr/20-architecture/EDR-20015.html"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Usar OpenCode como base inicial de iasi-agent</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Usar OpenCode como base inicial de iasi-agent</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../edr/20-architecture/index.html">Arquitectura</a></li>
+<li class="breadcrumb-item"><a href="../../edr/20-architecture/EDR-20015.html"><span class="chapter-number">42</span>  <span class="chapter-title">Usar OpenCode como base inicial de iasi-agent</span></a></li>
+</ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">42</span>  <span class="chapter-title">Usar OpenCode como base inicial de iasi-agent</span>
+</h1>
 </div>
 
 
@@ -171,10 +148,7 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
-
-
-<div class="edr-meta">
+</header><div class="edr-meta">
 <div class="edr-meta-summary">
 <span class="edr-id">EDR-20015</span> · <span class="edr-area">Arquitectura</span> · <span class="edr-status">accepted</span> · <span class="edr-created">2026-08-31</span>
 </div>
@@ -182,8 +156,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="edr-tags-label">Tags</span> <code class="edr-tag">agent</code> <code class="edr-tag">opencode</code> <code class="edr-tag">ollama</code> <code class="edr-tag">workspace</code> <code class="edr-tag">tooling</code>
 </div>
 </div>
-<section id="contexto" class="level2" data-number="41.1">
-<h2 data-number="41.1" class="anchored" data-anchor-id="contexto"><span class="header-section-number">41.1</span> Contexto</h2>
+<section id="contexto" class="level2" data-number="42.1"><h2 data-number="42.1" class="anchored" data-anchor-id="contexto">
+<span class="header-section-number">42.1</span> Contexto</h2>
 <p>Una vez definida la necesidad de disponer de un agente capaz de trabajar directamente sobre un workspace IASI, la siguiente cuestión fue determinar si debía construirse desde cero o apoyarse sobre una plataforma agentic existente.</p>
 <p>La selección no debía comenzar por la herramienta.</p>
 <p>Primero se identificaron las capacidades necesarias:</p>
@@ -203,9 +177,8 @@ ul.task-list li input[type="checkbox"] {
 <li>mantener separadas la metodología IASI y la plataforma de ejecución.</li>
 </ul>
 <p>A partir de estas necesidades se evaluaron varias alternativas.</p>
-</section>
-<section id="decisión" class="level2" data-number="41.2">
-<h2 data-number="41.2" class="anchored" data-anchor-id="decisión"><span class="header-section-number">41.2</span> Decisión</h2>
+</section><section id="decisión" class="level2" data-number="42.2"><h2 data-number="42.2" class="anchored" data-anchor-id="decisión">
+<span class="header-section-number">42.2</span> Decisión</h2>
 <p><code>iasi-agent</code> utilizará inicialmente <strong>OpenCode</strong> como plataforma base de ejecución agentic.</p>
 <p>OpenCode se considera infraestructura sustituible.</p>
 <p>IASI seguirá siendo propietario de las tareas, reglas, skills, contratos y workflow que definan el comportamiento esperado. OpenCode proporciona las capacidades de ejecución necesarias para que un modelo pueda operar sobre el workspace.</p>
@@ -223,11 +196,10 @@ model provider
 Ollama / cloud / other</code></pre>
 <p>La elección de OpenCode no convierte sus convenciones en el modelo conceptual de IASI.</p>
 <p>Cuando una capacidad IASI necesite proyectarse al formato esperado por OpenCode, esa traducción deberá mantenerse como una adaptación de plataforma.</p>
-</section>
-<section id="alternativas-consideradas" class="level2" data-number="41.3">
-<h2 data-number="41.3" class="anchored" data-anchor-id="alternativas-consideradas"><span class="header-section-number">41.3</span> Alternativas consideradas</h2>
-<section id="ollama-open-webui" class="level3" data-number="41.3.1">
-<h3 data-number="41.3.1" class="anchored" data-anchor-id="ollama-open-webui"><span class="header-section-number">41.3.1</span> Ollama + Open WebUI</h3>
+</section><section id="alternativas-consideradas" class="level2" data-number="42.3"><h2 data-number="42.3" class="anchored" data-anchor-id="alternativas-consideradas">
+<span class="header-section-number">42.3</span> Alternativas consideradas</h2>
+<section id="ollama-open-webui" class="level3" data-number="42.3.1"><h3 data-number="42.3.1" class="anchored" data-anchor-id="ollama-open-webui">
+<span class="header-section-number">42.3.1</span> Ollama + Open WebUI</h3>
 <p><strong>Ventajas</strong></p>
 <ul>
 <li>Infraestructura local ya disponible.</li>
@@ -243,9 +215,8 @@ Ollama / cloud / other</code></pre>
 </ul>
 <p><strong>Resultado</strong></p>
 <p>Se mantiene como infraestructura de modelos e interfaz de conversación, pero no como base suficiente de <code>iasi-agent</code>.</p>
-</section>
-<section id="continue" class="level3" data-number="41.3.2">
-<h3 data-number="41.3.2" class="anchored" data-anchor-id="continue"><span class="header-section-number">41.3.2</span> Continue</h3>
+</section><section id="continue" class="level3" data-number="42.3.2"><h3 data-number="42.3.2" class="anchored" data-anchor-id="continue">
+<span class="header-section-number">42.3.2</span> Continue</h3>
 <p><strong>Ventajas</strong></p>
 <ul>
 <li>Dispone de modo Agent con lectura, edición de archivos y ejecución de comandos.</li>
@@ -262,9 +233,8 @@ Ollama / cloud / other</code></pre>
 </ul>
 <p><strong>Resultado</strong></p>
 <p>Alternativa válida para utilizar IASI desde un IDE, pero no seleccionada como base principal de <code>iasi-agent</code>.</p>
-</section>
-<section id="aider" class="level3" data-number="41.3.3">
-<h3 data-number="41.3.3" class="anchored" data-anchor-id="aider"><span class="header-section-number">41.3.3</span> Aider</h3>
+</section><section id="aider" class="level3" data-number="42.3.3"><h3 data-number="42.3.3" class="anchored" data-anchor-id="aider">
+<span class="header-section-number">42.3.3</span> Aider</h3>
 <p><strong>Ventajas</strong></p>
 <ul>
 <li>Herramienta madura orientada a terminal.</li>
@@ -283,9 +253,8 @@ Ollama / cloud / other</code></pre>
 </ul>
 <p><strong>Resultado</strong></p>
 <p>Muy buena alternativa para edición asistida de código, pero menos adecuada como sustrato general de un agente IASI.</p>
-</section>
-<section id="codex-cli" class="level3" data-number="41.3.4">
-<h3 data-number="41.3.4" class="anchored" data-anchor-id="codex-cli"><span class="header-section-number">41.3.4</span> Codex CLI</h3>
+</section><section id="codex-cli" class="level3" data-number="42.3.4"><h3 data-number="42.3.4" class="anchored" data-anchor-id="codex-cli">
+<span class="header-section-number">42.3.4</span> Codex CLI</h3>
 <p><strong>Ventajas</strong></p>
 <ul>
 <li>Agente de terminal maduro capaz de leer, modificar y ejecutar trabajo sobre el workspace.</li>
@@ -303,9 +272,8 @@ Ollama / cloud / other</code></pre>
 </ul>
 <p><strong>Resultado</strong></p>
 <p>Se mantiene como ejecutor válido de tareas IASI y como referencia funcional, pero no se adopta como identidad ni base principal de <code>iasi-agent</code>.</p>
-</section>
-<section id="construir-un-agente-desde-cero" class="level3" data-number="41.3.5">
-<h3 data-number="41.3.5" class="anchored" data-anchor-id="construir-un-agente-desde-cero"><span class="header-section-number">41.3.5</span> Construir un agente desde cero</h3>
+</section><section id="construir-un-agente-desde-cero" class="level3" data-number="42.3.5"><h3 data-number="42.3.5" class="anchored" data-anchor-id="construir-un-agente-desde-cero">
+<span class="header-section-number">42.3.5</span> Construir un agente desde cero</h3>
 <p><strong>Ventajas</strong></p>
 <ul>
 <li>Control completo de arquitectura, comportamiento y contratos.</li>
@@ -320,9 +288,8 @@ Ollama / cloud / other</code></pre>
 </ul>
 <p><strong>Resultado</strong></p>
 <p>Descartado como punto de partida. Podrán sustituirse componentes concretos cuando exista una razón de ingeniería para hacerlo.</p>
-</section>
-<section id="opencode" class="level3" data-number="41.3.6">
-<h3 data-number="41.3.6" class="anchored" data-anchor-id="opencode"><span class="header-section-number">41.3.6</span> OpenCode</h3>
+</section><section id="opencode" class="level3" data-number="42.3.6"><h3 data-number="42.3.6" class="anchored" data-anchor-id="opencode">
+<span class="header-section-number">42.3.6</span> OpenCode</h3>
 <p><strong>Ventajas</strong></p>
 <ul>
 <li>Es un agente de código abierto y orientado al workspace.</li>
@@ -348,10 +315,8 @@ Ollama / cloud / other</code></pre>
 </ul>
 <p><strong>Resultado</strong></p>
 <p>Seleccionado como base inicial porque proporciona la mayor parte de la infraestructura necesaria sin obligar a IASI a construir un agente desde cero ni a ligarse a un proveedor de modelos o a un IDE concreto.</p>
-</section>
-</section>
-<section id="consecuencias" class="level2" data-number="41.4">
-<h2 data-number="41.4" class="anchored" data-anchor-id="consecuencias"><span class="header-section-number">41.4</span> Consecuencias</h2>
+</section></section><section id="consecuencias" class="level2" data-number="42.4"><h2 data-number="42.4" class="anchored" data-anchor-id="consecuencias">
+<span class="header-section-number">42.4</span> Consecuencias</h2>
 <p><code>iasi-agent</code> podrá comenzar como una adaptación/configuración de OpenCode en lugar de como un agente implementado completamente desde cero.</p>
 <p>Los modelos servidos por Ollama podrán utilizarse como proveedores de inferencia para el agente.</p>
 <p>Las reglas, skills y comandos de IASI no deberán definirse canónicamente en formatos propios de OpenCode. Se proyectarán mediante adapters cuando sea necesario.</p>
@@ -364,10 +329,7 @@ Ollama / cloud / other</code></pre>
 </blockquote>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -766,16 +728,14 @@ Ollama / cloud / other</code></pre>
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../../edr/20-architecture/EDR-20014.html" class="pagination-link" aria-label="Mantener iasi-agent como proyecto separado de IASI">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Mantener iasi-agent como proyecto separado de IASI</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">41</span>  <span class="chapter-title">Mantener iasi-agent como proyecto separado de IASI</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../edr/20-architecture/EDR-20016.html" class="pagination-link" aria-label="Declarar cada proyecto IASI mediante _iasi.yml">
-        <span class="nav-page-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Declarar cada proyecto IASI mediante _iasi.yml</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">43</span>  <span class="chapter-title">Declarar cada proyecto IASI mediante _iasi.yml</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -785,4 +745,5 @@ Ollama / cloud / other</code></pre>
 
 
 <script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
-</body></html>
+</body>
+</html>

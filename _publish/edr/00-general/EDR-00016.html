@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>40  Usar HTMLSlides para materializar Introducing IASI</title>
+<title>18  Adoptar TOML como formato preferente de configuración</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,8 +26,8 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/quarto-nav/headroom.min.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<link href="../../edr/20-architecture/EDR-20014.html" rel="next">
-<link href="../../edr/20-architecture/EDR-20012.html" rel="prev">
+<link href="../../edr/10-functional/index.html" rel="next">
+<link href="../../edr/00-general/EDR-00015.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
@@ -129,11 +129,11 @@ ul.task-list li input[type="checkbox"] {
     
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="../../edr/20-architecture/index.html">Arquitectura</a></li>
-<li class="breadcrumb-item"><a href="../../edr/20-architecture/EDR-20013.html"><span class="chapter-number">40</span>  <span class="chapter-title">Usar HTMLSlides para materializar Introducing IASI</span></a></li>
+<li class="breadcrumb-item"><a href="../../edr/00-general/index.html">General</a></li>
+<li class="breadcrumb-item"><a href="../../edr/00-general/EDR-00016.html"><span class="chapter-number">18</span>  <span class="chapter-title">Adoptar TOML como formato preferente de configuración</span></a></li>
 </ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">40</span>  <span class="chapter-title">Usar HTMLSlides para materializar Introducing IASI</span>
+<span class="chapter-number">18</span>  <span class="chapter-title">Adoptar TOML como formato preferente de configuración</span>
 </h1>
 </div>
 
@@ -150,150 +150,143 @@ ul.task-list li input[type="checkbox"] {
 
 </header><div class="edr-meta">
 <div class="edr-meta-summary">
-<span class="edr-id">EDR-20013</span> · <span class="edr-area">Arquitectura</span> · <span class="edr-status">accepted</span> · <span class="edr-created">2026-08-30</span>
+<span class="edr-id">EDR-00016</span> · <span class="edr-area">General</span> · <span class="edr-status">accepted</span> · <span class="edr-created">2026-09-15</span>
 </div>
 <div class="edr-tags">
-<span class="edr-tags-label">Tags</span> <code class="edr-tag">presentation</code> <code class="edr-tag">html</code> <code class="edr-tag">htmlslides</code> <code class="edr-tag">tooling</code> <code class="edr-tag">authoring</code>
+<span class="edr-tags-label">Tags</span> <code class="edr-tag">configuration</code> <code class="edr-tag">toml</code> <code class="edr-tag">yaml</code> <code class="edr-tag">standards</code>
 </div>
 </div>
-<section id="contexto" class="level2" data-number="40.1"><h2 data-number="40.1" class="anchored" data-anchor-id="contexto">
-<span class="header-section-number">40.1</span> Contexto</h2>
-<p>Una vez identificada la necesidad de crear una presentación de IASI apareció inmediatamente la cuestión de qué herramienta utilizar para materializarla.</p>
-<p>La primera reacción fue asumir <strong>PowerPoint</strong> y buscar la mejor forma de producir la presentación con esa tecnología. A partir de ahí se consideraron también otras herramientas de presentación.</p>
-<p>Ese enfoque reveló un problema metodológico: se estaba seleccionando una solución antes de terminar de definir la necesidad.</p>
-<p>Esto contradecía un principio fundamental de IASI:</p>
+<section id="adoptar-toml-como-formato-preferente-de-configuración" class="level1" data-number="19"><h1 data-number="19">
+<span class="header-section-number">19</span> Adoptar TOML como formato preferente de configuración</h1>
+<section id="contexto" class="level2" data-number="19.1"><h2 data-number="19.1" class="anchored" data-anchor-id="contexto">
+<span class="header-section-number">19.1</span> Contexto</h2>
+<p>IASI necesita un criterio común para los ficheros de configuración creados y controlados por sus propios artefactos. Entre los formatos candidatos, <strong>TOML</strong> y <strong>YAML</strong> (<code>.yaml</code> o <code>.yml</code>) ofrecen buena legibilidad humana y amplio soporte de herramientas.</p>
+<p>Sin embargo, responden a objetivos diferentes. YAML es un lenguaje general de serialización capaz de representar estructuras complejas y ofrecer mecanismos avanzados. TOML está orientado específicamente a configuración y favorece una sintaxis más explícita, limitada y predecible.</p>
+<p>Para IASI, un fichero de configuración debe ser fácil de leer y modificar por una persona, sencillo de procesar automáticamente y, sobre todo, difícil de interpretar de forma inesperada.</p>
+</section><section id="decisión" class="level2" data-number="19.2"><h2 data-number="19.2" class="anchored" data-anchor-id="decisión">
+<span class="header-section-number">19.2</span> Decisión</h2>
+<p>IASI adopta <strong>TOML como formato preferente para la configuración propia del ecosistema</strong>.</p>
+<p>Cuando IASI controle el formato de un fichero de configuración nuevo, se utilizará <code>.toml</code> por defecto.</p>
+<p>YAML no queda prohibido. Se utilizará cuando sea impuesto por una herramienta, protocolo o ecosistema externo, o cuando exista una razón técnica concreta que haga más adecuada su capacidad para representar estructuras de datos complejas.</p>
+<p>La decisión se aplica transversalmente a IASI y no está asociada a un artefacto, repositorio o subsistema concreto.</p>
+</section><section id="rationale" class="level2" data-number="19.3"><h2 data-number="19.3" class="anchored" data-anchor-id="rationale">
+<span class="header-section-number">19.3</span> Rationale</h2>
+<p>La preferencia por TOML no se basa en que sea más expresivo que YAML, sino precisamente en que es <strong>deliberadamente menos expresivo</strong> para el dominio de configuración.</p>
+<p>La menor cantidad de mecanismos sintácticos reduce el espacio de interpretaciones posibles y favorece configuraciones explícitas, estables y fáciles de validar.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Criterio</th>
+<th style="text-align: left;">TOML</th>
+<th style="text-align: left;">YAML</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Orientación principal</strong></td>
+<td style="text-align: left;">Configuración</td>
+<td style="text-align: left;">Serialización general de datos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Sintaxis</strong></td>
+<td style="text-align: left;">Explícita y relativamente pequeña</td>
+<td style="text-align: left;">Flexible y muy expresiva</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Indentación significativa</strong></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Sí</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Tipos</strong></td>
+<td style="text-align: left;">Explícitos y previsibles</td>
+<td style="text-align: left;">Más dependientes de reglas de interpretación</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Estructuras jerárquicas</strong></td>
+<td style="text-align: left;">Adecuadas, con mayor explicitud</td>
+<td style="text-align: left;">Muy naturales y compactas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Mecanismos avanzados</strong></td>
+<td style="text-align: left;">Deliberadamente limitados</td>
+<td style="text-align: left;">Anchors, aliases, tags y otras construcciones</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Riesgo de complejidad accidental</strong></td>
+<td style="text-align: left;">Menor</td>
+<td style="text-align: left;">Mayor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Adecuación a configuración IASI</strong></td>
+<td style="text-align: left;"><strong>Preferente</strong></td>
+<td style="text-align: left;">Condicional</td>
+</tr>
+</tbody>
+</table>
+<p>La restricción se considera una propiedad positiva: una configuración no necesita convertirse en un pequeño lenguaje para cumplir su función.</p>
 <blockquote class="blockquote">
-<p>No partir de una herramienta o metodología y preguntar cómo resolver el problema con ella. Partir de la necesidad y evaluar después qué solución la satisface mejor.</p>
+<p><strong>No elegimos TOML porque pueda expresar más que YAML, sino porque puede expresar menos y esas restricciones encajan mejor con lo que IASI necesita de una configuración.</strong></p>
 </blockquote>
-<p>Se volvió por tanto a la necesidad.</p>
-<p>La presentación debía:</p>
-<ul>
-<li>seguir siendo una <strong>presentación</strong>, no convertirse en un sitio web ni en documentación;</li>
-<li>permitir una narrativa progresiva y controlada;</li>
-<li>ser extremadamente limpia y visual;</li>
-<li>permitir interacción y revelado progresivo cuando resulte útil;</li>
-<li>ofrecer control completo sobre el lenguaje visual de IASI;</li>
-<li>poder mantenerse como un artefacto textual, versionable y reproducible;</li>
-<li>poder ser leído y modificado por agentes dentro del workspace;</li>
-<li>evitar que la identidad visual quede determinada por la herramienta utilizada;</li>
-<li>poder ejecutarse y distribuirse con la menor dependencia posible de un entorno de autoría específico.</li>
-</ul>
-<p>Con estos criterios se reevaluaron las alternativas.</p>
-</section><section id="decisión" class="level2" data-number="40.2"><h2 data-number="40.2" class="anchored" data-anchor-id="decisión">
-<span class="header-section-number">40.2</span> Decisión</h2>
-<p>La presentación <strong>Introducing IASI</strong> se materializará inicialmente mediante <strong>HTMLSlides</strong>.</p>
-<p>HTMLSlides se utilizará como infraestructura de presentación y renderer, no como definición del lenguaje visual de IASI.</p>
-<p>El diseño, la tipografía, la composición, los diagramas y el resto de decisiones visuales pertenecen a IASI y deberán poder expresarse posteriormente mediante otros renderers cuando sea necesario.</p>
-<p>La salida principal será una presentación HTML ejecutable en navegador y mantenida como artefacto versionable dentro del proyecto.</p>
-</section><section id="alternativas-consideradas" class="level2" data-number="40.3"><h2 data-number="40.3" class="anchored" data-anchor-id="alternativas-consideradas">
-<span class="header-section-number">40.3</span> Alternativas consideradas</h2>
-<section id="powerpoint" class="level3" data-number="40.3.1"><h3 data-number="40.3.1" class="anchored" data-anchor-id="powerpoint">
-<span class="header-section-number">40.3.1</span> PowerPoint</h3>
-<p><strong>Ventajas</strong></p>
-<ul>
-<li>Herramienta ampliamente conocida y utilizada.</li>
-<li>Muy buen soporte para edición manual de slides.</li>
-<li>Flujo de presentación maduro.</li>
-<li>Amplias capacidades gráficas, de animación y composición.</li>
-<li>Buena interoperabilidad en contextos corporativos.</li>
-</ul>
-<p><strong>Inconvenientes</strong></p>
-<ul>
-<li>El formato de autoría no es especialmente adecuado para inspección y edición textual.</li>
-<li>El control de versiones y la revisión de cambios son menos naturales que sobre fuentes de texto.</li>
-<li>La automatización y modificación por agentes introduce una capa adicional de herramientas.</li>
-<li>Favorece un flujo de trabajo centrado en la herramienta de edición.</li>
-<li>La decisión inicial de usar PowerPoint se había tomado antes de definir correctamente la necesidad.</li>
-</ul>
-<p><strong>Resultado</strong></p>
-<p>Descartado como tecnología principal para esta presentación. Puede seguir siendo útil para materializaciones o casos concretos futuros.</p>
-</section><section id="gamma" class="level3" data-number="40.3.2"><h3 data-number="40.3.2" class="anchored" data-anchor-id="gamma">
-<span class="header-section-number">40.3.2</span> Gamma</h3>
-<p><strong>Ventajas</strong></p>
-<ul>
-<li>Generación rápida de presentaciones con asistencia de IA.</li>
-<li>Buenos resultados visuales iniciales con poco trabajo.</li>
-<li>Publicación y compartición web sencillas.</li>
-<li>Reduce considerablemente el esfuerzo de composición inicial.</li>
-</ul>
-<p><strong>Inconvenientes</strong></p>
-<ul>
-<li>Introduce dependencia de un servicio externo y de su flujo de trabajo.</li>
-<li>Parte de la lógica de autoría y presentación queda controlada por la plataforma.</li>
-<li>Menor control sobre una fuente canónica completamente gobernada por IASI.</li>
-<li>La reproducibilidad y evolución mediante el workspace son menos directas.</li>
-<li>Sus decisiones visuales y de composición pueden condicionar el lenguaje visual de IASI.</li>
-</ul>
-<p><strong>Resultado</strong></p>
-<p>Descartado porque optimiza la generación de presentaciones, pero proporciona menos control sobre el artefacto y su proceso de ingeniería.</p>
-</section><section id="prezi" class="level3" data-number="40.3.3"><h3 data-number="40.3.3" class="anchored" data-anchor-id="prezi">
-<span class="header-section-number">40.3.3</span> Prezi</h3>
-<p><strong>Ventajas</strong></p>
-<ul>
-<li>Narrativa visual diferenciada.</li>
-<li>Permite relaciones espaciales y navegación no lineal.</li>
-<li>Puede producir presentaciones visualmente muy expresivas.</li>
-</ul>
-<p><strong>Inconvenientes</strong></p>
-<ul>
-<li>Su modelo de navegación condiciona fuertemente la narrativa.</li>
-<li>El movimiento y la estructura espacial no son una necesidad de Introducing IASI.</li>
-<li>Introduce dependencia de una plataforma y un formato de autoría específicos.</li>
-<li>Resulta menos natural como artefacto textual y versionable dentro del workspace.</li>
-</ul>
-<p><strong>Resultado</strong></p>
-<p>Descartado porque su principal ventaja no responde a una necesidad identificada y añadiría una forma narrativa impuesta por la herramienta.</p>
-</section><section id="html-desarrollado-específicamente-para-la-presentación" class="level3" data-number="40.3.4"><h3 data-number="40.3.4" class="anchored" data-anchor-id="html-desarrollado-específicamente-para-la-presentación">
-<span class="header-section-number">40.3.4</span> HTML desarrollado específicamente para la presentación</h3>
-<p><strong>Ventajas</strong></p>
-<ul>
-<li>Control completo sobre presentación, comportamiento y lenguaje visual.</li>
-<li>Fuente textual y directamente versionable.</li>
-<li>Ejecución universal mediante navegador.</li>
-<li>Fácil integración con agentes y herramientas del workspace.</li>
-<li>Posibilidad de generar un único artefacto HTML autocontenido.</li>
-</ul>
-<p><strong>Inconvenientes</strong></p>
-<ul>
-<li>Obliga a construir y mantener desde cero comportamiento propio de una presentación.</li>
-<li>Navegación, ajuste al viewport, teclado, notas, progresión y otras capacidades básicas pasarían a ser responsabilidad del proyecto.</li>
-<li>Introduciría infraestructura propia antes de demostrar que realmente es necesaria.</li>
-</ul>
-<p><strong>Resultado</strong></p>
-<p>La aproximación HTML se considera adecuada, pero se evita construir desde cero la infraestructura que ya puede proporcionar una solución especializada.</p>
-</section><section id="htmlslides" class="level3" data-number="40.3.5"><h3 data-number="40.3.5" class="anchored" data-anchor-id="htmlslides">
-<span class="header-section-number">40.3.5</span> HTMLSlides</h3>
-<p><strong>Ventajas</strong></p>
-<ul>
-<li>Mantiene HTML como fuente y como materialización natural.</li>
-<li>Permite trabajar con archivos textuales, versionables e inspeccionables.</li>
-<li>Puede ser leído y modificado directamente por agentes.</li>
-<li>Proporciona una estructura específica de slides y capacidades básicas de presentación.</li>
-<li>Se ejecuta directamente en navegador.</li>
-<li>Permite producir una presentación autocontenida con muy pocas dependencias.</li>
-<li>Conserva un alto grado de control sobre HTML, CSS y comportamiento.</li>
-<li>No obliga a adoptar una identidad visual concreta.</li>
-<li>Permite que el lenguaje visual de IASI se defina independientemente del renderer.</li>
-</ul>
-<p><strong>Inconvenientes</strong></p>
-<ul>
-<li>Tiene un ecosistema y una madurez menores que PowerPoint.</li>
-<li>Requiere trabajo propio de diseño y CSS.</li>
-<li>Algunas capacidades avanzadas deberán implementarse o adaptarse cuando aparezca la necesidad.</li>
-<li>La interoperabilidad directa con formatos tradicionales de presentación no es su objetivo principal.</li>
-</ul>
-<p><strong>Resultado</strong></p>
-<p>Seleccionado porque proporciona suficiente infraestructura de presentación sin apropiarse del diseño ni del proceso de ingeniería.</p>
-</section></section><section id="consecuencias" class="level2" data-number="40.4"><h2 data-number="40.4" class="anchored" data-anchor-id="consecuencias">
-<span class="header-section-number">40.4</span> Consecuencias</h2>
-<p><code>introducing-iasi</code> tendrá como materialización principal una presentación HTML basada en HTMLSlides.</p>
-<p>El contenido, la narrativa y el lenguaje visual permanecen bajo control de IASI.</p>
-<p>HTMLSlides se considera un renderer sustituible. La presentación no debe diseñarse conceptualmente alrededor de las limitaciones o convenciones propias de HTMLSlides.</p>
-<p>La elección permite mantener la presentación como artefacto textual, reproducible, versionable y accesible a agentes dentro del workspace.</p>
-<p>La decisión podrá revisarse si las necesidades reales de la presentación dejan de estar bien cubiertas por HTMLSlides. La herramienta es consecuencia de la necesidad, no una restricción impuesta al problema.</p>
+</section><section id="alternativas-consideradas" class="level2" data-number="19.4"><h2 data-number="19.4" class="anchored" data-anchor-id="alternativas-consideradas">
+<span class="header-section-number">19.4</span> Alternativas consideradas</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 30%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Alternativa</th>
+<th style="text-align: left;">Ventajas</th>
+<th style="text-align: left;">Inconvenientes</th>
+<th style="text-align: center;">Decisión</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>TOML</strong></td>
+<td style="text-align: left;">Explícito, predecible, orientado a configuración y con tipado claro</td>
+<td style="text-align: left;">Más verboso en estructuras profundamente jerárquicas</td>
+<td style="text-align: center;"><strong>Adoptada</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>YAML</strong></td>
+<td style="text-align: left;">Muy legible en estructuras jerárquicas, compacto y ampliamente utilizado</td>
+<td style="text-align: left;">Mayor complejidad sintáctica y semántica; más formas de expresar lo mismo</td>
+<td style="text-align: center;">No como formato propio por defecto</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>JSON</strong></td>
+<td style="text-align: left;">Universal, especificación pequeña y excelente interoperabilidad</td>
+<td style="text-align: left;">Poco cómodo para edición humana y sin comentarios estándar</td>
+<td style="text-align: center;">No adoptada para configuración humana</td>
+</tr>
+</tbody>
+</table>
+<section id="yaml-como-formato-general" class="level3" data-number="19.4.1"><h3 data-number="19.4.1" class="anchored" data-anchor-id="yaml-como-formato-general">
+<span class="header-section-number">19.4.1</span> YAML como formato general</h3>
+<p>YAML sigue siendo apropiado cuando el problema consiste principalmente en describir estructuras de datos jerárquicas o cuando una tecnología externa lo establece como formato nativo.</p>
+<p>Las extensiones <code>.yaml</code> y <code>.yml</code> representan el mismo formato y no constituyen alternativas diferentes dentro de esta decisión.</p>
+</section><section id="json-como-configuración" class="level3" data-number="19.4.2"><h3 data-number="19.4.2" class="anchored" data-anchor-id="json-como-configuración">
+<span class="header-section-number">19.4.2</span> JSON como configuración</h3>
+<p>JSON es adecuado como formato de intercambio entre sistemas, pero no se adopta como formato preferente de configuración humana de IASI. La ausencia de comentarios estándar y su sintaxis más rígida lo hacen menos conveniente para ficheros mantenidos directamente por personas.</p>
+</section></section><section id="consecuencias" class="level2" data-number="19.5"><h2 data-number="19.5" class="anchored" data-anchor-id="consecuencias">
+<span class="header-section-number">19.5</span> Consecuencias</h2>
+<p>Los nuevos formatos de configuración definidos por IASI deberán considerar TOML como primera opción.</p>
+<p>Los artefactos existentes no deberán migrarse mecánicamente solo para uniformar extensiones. La migración tendrá sentido cuando IASI controle realmente el formato y el cambio aporte valor suficiente.</p>
+<p>Cuando una herramienta externa requiera YAML, JSON u otro formato, IASI utilizará el formato requerido sin introducir conversiones artificiales únicamente para cumplir esta preferencia.</p>
+<p>Las excepciones deberán responder a una necesidad técnica identificable y no simplemente a la costumbre de utilizar YAML para cualquier configuración.</p>
+<p>La elección del formato de serialización tampoco convierte a TOML en el modelo de dominio. Cuando exista un modelo interno, TOML será una representación de entrada o persistencia de dicho modelo, no necesariamente su definición conceptual.</p>
+<blockquote class="blockquote">
+<p><strong>Configuración propia de IASI → TOML por defecto. Formato impuesto o necesidad específica → el formato que corresponda.</strong></p>
+</blockquote>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -693,13 +686,13 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../edr/20-architecture/EDR-20012.html" class="pagination-link" aria-label="Separar el entorno de laboratorios mediante una máquina virtual dedicada">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">39</span>  <span class="chapter-title">Separar el entorno de laboratorios mediante una máquina virtual dedicada</span></span>
+      <a href="../../edr/00-general/EDR-00015.html" class="pagination-link" aria-label="Separar roles, personas y puestos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>  <span class="chapter-title">Separar roles, personas y puestos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../edr/20-architecture/EDR-20014.html" class="pagination-link" aria-label="Mantener iasi-agent como proyecto separado de IASI">
-        <span class="nav-page-text"><span class="chapter-number">41</span>  <span class="chapter-title">Mantener iasi-agent como proyecto separado de IASI</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../edr/10-functional/index.html" class="pagination-link" aria-label="Funcional">
+        <span class="nav-page-text">Funcional</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>42  Declarar cada proyecto IASI mediante _iasi.yml</title>
+<title>43  Declarar cada proyecto IASI mediante _iasi.yml</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -130,10 +130,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../edr/20-architecture/index.html">Arquitectura</a></li>
-<li class="breadcrumb-item"><a href="../../edr/20-architecture/EDR-20016.html"><span class="chapter-number">42</span>  <span class="chapter-title">Declarar cada proyecto IASI mediante _iasi.yml</span></a></li>
+<li class="breadcrumb-item"><a href="../../edr/20-architecture/EDR-20016.html"><span class="chapter-number">43</span>  <span class="chapter-title">Declarar cada proyecto IASI mediante _iasi.yml</span></a></li>
 </ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">42</span>  <span class="chapter-title">Declarar cada proyecto IASI mediante _iasi.yml</span>
+<span class="chapter-number">43</span>  <span class="chapter-title">Declarar cada proyecto IASI mediante _iasi.yml</span>
 </h1>
 </div>
 
@@ -156,15 +156,15 @@ ul.task-list li input[type="checkbox"] {
 <span class="edr-tags-label">Tags</span> <code class="edr-tag">project</code> <code class="edr-tag">declaration</code> <code class="edr-tag">configuration</code> <code class="edr-tag">iasi-yml</code>
 </div>
 </div>
-<section id="declarar-cada-proyecto-iasi-mediante-_iasi.yml" class="level1" data-number="43"><h1 data-number="43">
-<span class="header-section-number">43</span> Declarar cada proyecto IASI mediante _iasi.yml</h1>
-<section id="contexto" class="level2" data-number="43.1"><h2 data-number="43.1" class="anchored" data-anchor-id="contexto">
-<span class="header-section-number">43.1</span> Contexto</h2>
+<section id="declarar-cada-proyecto-iasi-mediante-_iasi.yml" class="level1" data-number="44"><h1 data-number="44">
+<span class="header-section-number">44</span> Declarar cada proyecto IASI mediante _iasi.yml</h1>
+<section id="contexto" class="level2" data-number="44.1"><h2 data-number="44.1" class="anchored" data-anchor-id="contexto">
+<span class="header-section-number">44.1</span> Contexto</h2>
 <p>Durante la reorganización de repositorios surgió la necesidad de distinguir entre un directorio que simplemente contiene archivos y un proyecto que IASI debe reconocer como unidad de ingeniería.</p>
 <p>También existía el directorio <code>.iasi/</code>, destinado a material de trabajo interno, lo que podía inducir a utilizarlo como marcador de identidad del proyecto.</p>
 <p>Sin embargo, el estado interno y la declaración persistente cumplen responsabilidades diferentes.</p>
-</section><section id="decisión" class="level2" data-number="43.2"><h2 data-number="43.2" class="anchored" data-anchor-id="decisión">
-<span class="header-section-number">43.2</span> Decisión</h2>
+</section><section id="decisión" class="level2" data-number="44.2"><h2 data-number="44.2" class="anchored" data-anchor-id="decisión">
+<span class="header-section-number">44.2</span> Decisión</h2>
 <p>Todo proyecto IASI tendrá una declaración explícita mediante un archivo <strong><code>_iasi.yml</code></strong> situado en la raíz del proyecto.</p>
 <p><code>_iasi.yml</code> define la identidad y configuración declarativa del proyecto.</p>
 <p>El directorio <code>.iasi/</code>, cuando exista, se reservará para estado interno o material de trabajo que pueda recrearse, descartarse o regenerarse.</p>
@@ -173,20 +173,20 @@ ul.task-list li input[type="checkbox"] {
 .iasi/      → estado y material interno de trabajo</code></pre>
 <p>Un repositorio que actúe además como ámbito raíz de varios proyectos podrá ser también un proyecto IASI y disponer de su propia declaración raíz.</p>
 <p>Los proyectos hijos mantienen sus propias declaraciones y su identidad independiente.</p>
-</section><section id="rationale" class="level2" data-number="43.3"><h2 data-number="43.3" class="anchored" data-anchor-id="rationale">
-<span class="header-section-number">43.3</span> Rationale</h2>
+</section><section id="rationale" class="level2" data-number="44.3"><h2 data-number="44.3" class="anchored" data-anchor-id="rationale">
+<span class="header-section-number">44.3</span> Rationale</h2>
 <p>La identidad de un proyecto no debe depender de la existencia de cachés, índices, estado temporal u otros materiales internos.</p>
 <p>Una declaración explícita permite descubrir proyectos, validar configuración y combinar información de distintos ámbitos sin confundir identidad con estado de ejecución.</p>
-</section><section id="alternativas-consideradas" class="level2" data-number="43.4"><h2 data-number="43.4" class="anchored" data-anchor-id="alternativas-consideradas">
-<span class="header-section-number">43.4</span> Alternativas consideradas</h2>
-<section id="utilizar-.iasi-como-marcador-de-proyecto" class="level3" data-number="43.4.1"><h3 data-number="43.4.1" class="anchored" data-anchor-id="utilizar-.iasi-como-marcador-de-proyecto">
-<span class="header-section-number">43.4.1</span> Utilizar <code>.iasi/</code> como marcador de proyecto</h3>
+</section><section id="alternativas-consideradas" class="level2" data-number="44.4"><h2 data-number="44.4" class="anchored" data-anchor-id="alternativas-consideradas">
+<span class="header-section-number">44.4</span> Alternativas consideradas</h2>
+<section id="utilizar-.iasi-como-marcador-de-proyecto" class="level3" data-number="44.4.1"><h3 data-number="44.4.1" class="anchored" data-anchor-id="utilizar-.iasi-como-marcador-de-proyecto">
+<span class="header-section-number">44.4.1</span> Utilizar <code>.iasi/</code> como marcador de proyecto</h3>
 <p>Se descarta porque el directorio representa estado interno y puede ser regenerable o prescindible.</p>
-</section><section id="inferir-que-existe-un-proyecto-por-la-presencia-de-archivos-de-una-tecnología-concreta" class="level3" data-number="43.4.2"><h3 data-number="43.4.2" class="anchored" data-anchor-id="inferir-que-existe-un-proyecto-por-la-presencia-de-archivos-de-una-tecnología-concreta">
-<span class="header-section-number">43.4.2</span> Inferir que existe un proyecto por la presencia de archivos de una tecnología concreta</h3>
+</section><section id="inferir-que-existe-un-proyecto-por-la-presencia-de-archivos-de-una-tecnología-concreta" class="level3" data-number="44.4.2"><h3 data-number="44.4.2" class="anchored" data-anchor-id="inferir-que-existe-un-proyecto-por-la-presencia-de-archivos-de-una-tecnología-concreta">
+<span class="header-section-number">44.4.2</span> Inferir que existe un proyecto por la presencia de archivos de una tecnología concreta</h3>
 <p>Se descarta porque un proyecto IASI no debe depender de Quarto, R, Java, Git u otra tecnología particular para ser reconocido.</p>
-</section></section><section id="consecuencias" class="level2" data-number="43.5"><h2 data-number="43.5" class="anchored" data-anchor-id="consecuencias">
-<span class="header-section-number">43.5</span> Consecuencias</h2>
+</section></section><section id="consecuencias" class="level2" data-number="44.5"><h2 data-number="44.5" class="anchored" data-anchor-id="consecuencias">
+<span class="header-section-number">44.5</span> Consecuencias</h2>
 <p>Las herramientas IASI podrán descubrir proyectos buscando <code>_iasi.yml</code>.</p>
 <p>Un repositorio podrá contener proyectos IASI y otros elementos que no lo sean sin que la mera estructura de carpetas determine su identidad.</p>
 <p>Las configuraciones raíz y locales podrán combinarse cuando una operación necesite conocer ambos ámbitos.</p>
@@ -593,12 +593,12 @@ ul.task-list li input[type="checkbox"] {
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../../edr/20-architecture/EDR-20015.html" class="pagination-link" aria-label="Usar OpenCode como base inicial de iasi-agent">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">41</span>  <span class="chapter-title">Usar OpenCode como base inicial de iasi-agent</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">42</span>  <span class="chapter-title">Usar OpenCode como base inicial de iasi-agent</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../edr/20-architecture/EDR-20017.html" class="pagination-link" aria-label="Separar proyecto IASI, repositorio Git y release">
-        <span class="nav-page-text"><span class="chapter-number">43</span>  <span class="chapter-title">Separar proyecto IASI, repositorio Git y release</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">44</span>  <span class="chapter-title">Separar proyecto IASI, repositorio Git y release</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

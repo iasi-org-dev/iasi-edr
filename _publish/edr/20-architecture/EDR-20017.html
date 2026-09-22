@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>43  Separar proyecto IASI, repositorio Git y release</title>
+<title>44  Separar proyecto IASI, repositorio Git y release</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,7 +26,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/quarto-nav/headroom.min.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<link href="../../edr/30-constraints/index.html" rel="next">
+<link href="../../edr/20-architecture/EDR-20018.html" rel="next">
 <link href="../../edr/20-architecture/EDR-20016.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
@@ -130,10 +130,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../edr/20-architecture/index.html">Arquitectura</a></li>
-<li class="breadcrumb-item"><a href="../../edr/20-architecture/EDR-20017.html"><span class="chapter-number">43</span>  <span class="chapter-title">Separar proyecto IASI, repositorio Git y release</span></a></li>
+<li class="breadcrumb-item"><a href="../../edr/20-architecture/EDR-20017.html"><span class="chapter-number">44</span>  <span class="chapter-title">Separar proyecto IASI, repositorio Git y release</span></a></li>
 </ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">43</span>  <span class="chapter-title">Separar proyecto IASI, repositorio Git y release</span>
+<span class="chapter-number">44</span>  <span class="chapter-title">Separar proyecto IASI, repositorio Git y release</span>
 </h1>
 </div>
 
@@ -156,18 +156,18 @@ ul.task-list li input[type="checkbox"] {
 <span class="edr-tags-label">Tags</span> <code class="edr-tag">project</code> <code class="edr-tag">repository</code> <code class="edr-tag">release</code> <code class="edr-tag">git</code>
 </div>
 </div>
-<section id="separar-proyecto-iasi-repositorio-git-y-release" class="level1" data-number="44"><h1 data-number="44">
-<span class="header-section-number">44</span> Separar proyecto IASI, repositorio Git y release</h1>
-<section id="contexto" class="level2" data-number="44.1"><h2 data-number="44.1" class="anchored" data-anchor-id="contexto">
-<span class="header-section-number">44.1</span> Contexto</h2>
+<section id="separar-proyecto-iasi-repositorio-git-y-release" class="level1" data-number="45"><h1 data-number="45">
+<span class="header-section-number">45</span> Separar proyecto IASI, repositorio Git y release</h1>
+<section id="contexto" class="level2" data-number="45.1"><h2 data-number="45.1" class="anchored" data-anchor-id="contexto">
+<span class="header-section-number">45.1</span> Contexto</h2>
 <p>Un repositorio puede contener varios proyectos IASI: documentación, software y otros elementos independientes. Durante la implementación de <code>release</code> apareció la tentación de hacer que cada proyecto hijo conociese el repositorio que lo contiene y decidiese directamente dónde liberar sus artefactos.</p>
 <p>Esto mezcla tres ámbitos distintos:</p>
 <ul>
 <li>el proyecto IASI;</li>
 <li>el repositorio Git;</li>
 <li>la colección liberada por el repositorio.</li>
-</ul></section><section id="decisión" class="level2" data-number="44.2"><h2 data-number="44.2" class="anchored" data-anchor-id="decisión">
-<span class="header-section-number">44.2</span> Decisión</h2>
+</ul></section><section id="decisión" class="level2" data-number="45.2"><h2 data-number="45.2" class="anchored" data-anchor-id="decisión">
+<span class="header-section-number">45.2</span> Decisión</h2>
 <p>IASI distinguirá explícitamente esos tres ámbitos.</p>
 <p>Un <strong>proyecto IASI</strong> conoce su propia declaración, fuentes, outputs y operaciones locales. No necesita conocer qué repositorio Git lo contiene.</p>
 <p>El <strong>repositorio Git</strong> establece el ámbito de liberación conjunta. Una operación <code>release</code> deberá localizar la raíz Git correspondiente y operar desde ese ámbito.</p>
@@ -183,25 +183,25 @@ ul.task-list li input[type="checkbox"] {
 │       └── _iasi.yml
 └── release/</code></pre>
 <p>Si un proyecto hijo constituye a su vez un repositorio Git independiente, ese límite Git define un nuevo ámbito de release.</p>
-</section><section id="configuración" class="level2" data-number="44.3"><h2 data-number="44.3" class="anchored" data-anchor-id="configuración">
-<span class="header-section-number">44.3</span> Configuración</h2>
+</section><section id="configuración" class="level2" data-number="45.3"><h2 data-number="45.3" class="anchored" data-anchor-id="configuración">
+<span class="header-section-number">45.3</span> Configuración</h2>
 <p>Cuando una operación necesite información del proyecto local y del repositorio que lo contiene, podrá combinar la configuración de ambos ámbitos.</p>
 <p>La configuración local describe el proyecto. La configuración raíz describe decisiones de ámbito común, como localizaciones o convenciones de release.</p>
 <p>La precedencia exacta podrá implementarse por capas, manteniendo la regla de que la configuración más específica pueda especializar los valores generales.</p>
-</section><section id="rationale" class="level2" data-number="44.4"><h2 data-number="44.4" class="anchored" data-anchor-id="rationale">
-<span class="header-section-number">44.4</span> Rationale</h2>
+</section><section id="rationale" class="level2" data-number="45.4"><h2 data-number="45.4" class="anchored" data-anchor-id="rationale">
+<span class="header-section-number">45.4</span> Rationale</h2>
 <p>Un proyecto debe poder moverse entre repositorios o existir de forma independiente sin cambiar su identidad interna por razones de control de versiones.</p>
 <p>Al mismo tiempo, la release necesita conocer la colección completa que un repositorio publica y no únicamente el proyecto desde el que se lanzó una operación.</p>
-</section><section id="alternativas-consideradas" class="level2" data-number="44.5"><h2 data-number="44.5" class="anchored" data-anchor-id="alternativas-consideradas">
-<span class="header-section-number">44.5</span> Alternativas consideradas</h2>
-<section id="hacer-que-cada-proyecto-hijo-conozca-su-repositorio" class="level3" data-number="44.5.1"><h3 data-number="44.5.1" class="anchored" data-anchor-id="hacer-que-cada-proyecto-hijo-conozca-su-repositorio">
-<span class="header-section-number">44.5.1</span> Hacer que cada proyecto hijo conozca su repositorio</h3>
+</section><section id="alternativas-consideradas" class="level2" data-number="45.5"><h2 data-number="45.5" class="anchored" data-anchor-id="alternativas-consideradas">
+<span class="header-section-number">45.5</span> Alternativas consideradas</h2>
+<section id="hacer-que-cada-proyecto-hijo-conozca-su-repositorio" class="level3" data-number="45.5.1"><h3 data-number="45.5.1" class="anchored" data-anchor-id="hacer-que-cada-proyecto-hijo-conozca-su-repositorio">
+<span class="header-section-number">45.5.1</span> Hacer que cada proyecto hijo conozca su repositorio</h3>
 <p>Se descarta porque acopla el proyecto a una ubicación y a una tecnología de control de versiones concreta.</p>
-</section><section id="tratar-release-como-operación-puramente-local-del-proyecto" class="level3" data-number="44.5.2"><h3 data-number="44.5.2" class="anchored" data-anchor-id="tratar-release-como-operación-puramente-local-del-proyecto">
-<span class="header-section-number">44.5.2</span> Tratar release como operación puramente local del proyecto</h3>
+</section><section id="tratar-release-como-operación-puramente-local-del-proyecto" class="level3" data-number="45.5.2"><h3 data-number="45.5.2" class="anchored" data-anchor-id="tratar-release-como-operación-puramente-local-del-proyecto">
+<span class="header-section-number">45.5.2</span> Tratar release como operación puramente local del proyecto</h3>
 <p>Se descarta porque no permite ensamblar de forma natural una publicación compuesta por varios proyectos del mismo repositorio.</p>
-</section></section><section id="consecuencias" class="level2" data-number="44.6"><h2 data-number="44.6" class="anchored" data-anchor-id="consecuencias">
-<span class="header-section-number">44.6</span> Consecuencias</h2>
+</section></section><section id="consecuencias" class="level2" data-number="45.6"><h2 data-number="45.6" class="anchored" data-anchor-id="consecuencias">
+<span class="header-section-number">45.6</span> Consecuencias</h2>
 <p><code>release</code> deberá descubrir la raíz Git de forma robusta antes de ensamblar la colección liberada.</p>
 <p>La estructura de <code>release/</code> será orientada a productos liberados y no una copia literal de las categorías internas del repositorio.</p>
 <p>Por ejemplo:</p>
@@ -613,12 +613,12 @@ ul.task-list li input[type="checkbox"] {
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../../edr/20-architecture/EDR-20016.html" class="pagination-link" aria-label="Declarar cada proyecto IASI mediante _iasi.yml">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">42</span>  <span class="chapter-title">Declarar cada proyecto IASI mediante _iasi.yml</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">43</span>  <span class="chapter-title">Declarar cada proyecto IASI mediante _iasi.yml</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../edr/30-constraints/index.html" class="pagination-link" aria-label="Constraints">
-        <span class="nav-page-text">Constraints</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../edr/20-architecture/EDR-20018.html" class="pagination-link" aria-label="Usar Ubuntu Server 24.04 LTS en iasi-tools">
+        <span class="nav-page-text"><span class="chapter-number">45</span>  <span class="chapter-title">Usar Ubuntu Server 24.04 LTS en iasi-tools</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

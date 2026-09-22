@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>57&nbsp; Preservar el formato deliberado del código Go</title>
+<title>60  Preservar el formato deliberado del código Go</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -62,26 +60,12 @@ div.sourceCode
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
-
-
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/quarto-nav/headroom.min.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../edr/70-quality/EDR-70005.html" rel="next">
 <link href="../../edr/70-quality/EDR-70003.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-5373981de1c9cfd68d208868f8f26ae6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -108,18 +92,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
-
-
+}</script><style>html{ scroll-behavior: smooth; }</style>
 </head>
-
 <body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">IASI EDR</span>
@@ -131,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
@@ -176,23 +154,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Pendientes</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../edr/70-quality/index.html">Calidad</a></li><li class="breadcrumb-item"><a href="../../edr/70-quality/EDR-70004.html"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Preservar el formato deliberado del código Go</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Preservar el formato deliberado del código Go</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../edr/70-quality/index.html">Calidad</a></li>
+<li class="breadcrumb-item"><a href="../../edr/70-quality/EDR-70004.html"><span class="chapter-number">60</span>  <span class="chapter-title">Preservar el formato deliberado del código Go</span></a></li>
+</ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">60</span>  <span class="chapter-title">Preservar el formato deliberado del código Go</span>
+</h1>
 </div>
 
 
@@ -206,10 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header>
-
-
-<div class="edr-meta">
+</header><div class="edr-meta">
 <div class="edr-meta-summary">
 <span class="edr-id">EDR-70004</span> · <span class="edr-area">Calidad</span> · <span class="edr-status">accepted</span> · <span class="edr-created">2026-09-01</span>
 </div>
@@ -217,58 +191,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="edr-tags-label">Tags</span> <code class="edr-tag">go</code> <code class="edr-tag">formatting</code> <code class="edr-tag">readability</code> <code class="edr-tag">coding-style</code>
 </div>
 </div>
-<section id="contexto" class="level2" data-number="57.1">
-<h2 data-number="57.1" class="anchored" data-anchor-id="contexto"><span class="header-section-number">57.1</span> Contexto</h2>
+<section id="contexto" class="level2" data-number="60.1"><h2 data-number="60.1" class="anchored" data-anchor-id="contexto">
+<span class="header-section-number">60.1</span> Contexto</h2>
 <p>IASI disponía de una rule específica para Go que exigía que todo el código fuente se ajustase al formato producido por <code>gofmt</code> y desaconsejaba mantener manualmente cualquier formato que entrase en conflicto con él.</p>
 <p>Durante la revisión del código de <code>iasi-cli</code> se comprobó que determinadas decisiones de formato pueden expresar de forma directa la estructura lógica del programa y mejorar su lectura por personas.</p>
 <p>Por ejemplo, un <code>switch</code> utilizado como tabla de decisión puede escribirse de forma que sus alternativas se comprendan de un vistazo:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode go code-with-copy"><code class="sourceCode go"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">switch</span> adapter<span class="op">.</span>Action <span class="op">{</span></span>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb1"><pre class="sourceCode go code-with-copy"><code class="sourceCode go"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">switch</span> adapter<span class="op">.</span>Action <span class="op">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> cli<span class="op">.</span>Help<span class="op">:</span> adapter <span class="op">=</span> helpAdapter<span class="op">(</span>adapter<span class="op">)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> cli<span class="op">.</span>List<span class="op">:</span> adapter <span class="op">=</span> listAdapters<span class="op">(</span>adapter<span class="op">)</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span>       adapter <span class="op">=</span> processAdapter<span class="op">(</span>adapter<span class="op">)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <p>La indentación muestra que los <code>case</code> pertenecen al bloque del <code>switch</code>, mientras que la alineación permite comparar visualmente las alternativas y sus acciones.</p>
 <p>El formateo automático de Go modifica esta representación aunque el código sea válido, eliminando información visual introducida deliberadamente para facilitar su comprensión.</p>
-</section>
-<section id="decisión" class="level2" data-number="57.2">
-<h2 data-number="57.2" class="anchored" data-anchor-id="decisión"><span class="header-section-number">57.2</span> Decisión</h2>
+</section><section id="decisión" class="level2" data-number="60.2"><h2 data-number="60.2" class="anchored" data-anchor-id="decisión">
+<span class="header-section-number">60.2</span> Decisión</h2>
 <p>El código Go propiedad de IASI conservará su <strong>formato deliberado</strong>.</p>
 <p>No se ejecutarán automáticamente <code>gofmt</code>, <code>go fmt</code> ni herramientas equivalentes que normalicen el formato del código Go y puedan sustituir decisiones explícitas de indentación, alineación o agrupación visual.</p>
 <p>La rule existente que obliga a utilizar <code>gofmt</code> se elimina de <code>iasi-core</code>.</p>
 <p>Las herramientas de desarrollo, automatizaciones y procesos de integración no deberán aplicar formateo automático sobre código Go propiedad del proyecto.</p>
 <p>El formato seguirá siendo responsabilidad de la ingeniería del código. Puede modificarse cuando la modificación sea deliberada y mejore o preserve su legibilidad, pero no se normalizará automáticamente por el mero hecho de ajustarse a una convención externa.</p>
-</section>
-<section id="rationale" class="level2" data-number="57.3">
-<h2 data-number="57.3" class="anchored" data-anchor-id="rationale"><span class="header-section-number">57.3</span> Rationale</h2>
+</section><section id="rationale" class="level2" data-number="60.3"><h2 data-number="60.3" class="anchored" data-anchor-id="rationale">
+<span class="header-section-number">60.3</span> Rationale</h2>
 <p>El formato del código no es únicamente decoración. Puede formar parte de su representación y ayudar a mostrar relaciones, niveles, alternativas y bloques conceptuales.</p>
 <p>IASI prioriza que el código pueda <strong>leerse y comprenderse por personas</strong>. Una herramienta automática es útil mientras contribuya a ese objetivo, pero no debe imponerse cuando elimina información visual que el autor ha introducido deliberadamente para expresar mejor la estructura del programa.</p>
 <p>La decisión no rechaza las convenciones del ecosistema Go como referencia general. Establece que una convención de formato no tiene prioridad automática sobre una representación deliberada que resulte más clara para el código concreto.</p>
-</section>
-<section id="alternativas-consideradas" class="level2" data-number="57.4">
-<h2 data-number="57.4" class="anchored" data-anchor-id="alternativas-consideradas"><span class="header-section-number">57.4</span> Alternativas consideradas</h2>
-<section id="mantener-gofmt-como-obligatorio" class="level3" data-number="57.4.1">
-<h3 data-number="57.4.1" class="anchored" data-anchor-id="mantener-gofmt-como-obligatorio"><span class="header-section-number">57.4.1</span> Mantener <code>gofmt</code> como obligatorio</h3>
+</section><section id="alternativas-consideradas" class="level2" data-number="60.4"><h2 data-number="60.4" class="anchored" data-anchor-id="alternativas-consideradas">
+<span class="header-section-number">60.4</span> Alternativas consideradas</h2>
+<section id="mantener-gofmt-como-obligatorio" class="level3" data-number="60.4.1"><h3 data-number="60.4.1" class="anchored" data-anchor-id="mantener-gofmt-como-obligatorio">
+<span class="header-section-number">60.4.1</span> Mantener <code>gofmt</code> como obligatorio</h3>
 <p>Se descarta porque impide conservar formatos deliberados que permiten representar con mayor claridad determinadas estructuras lógicas.</p>
-</section>
-<section id="utilizar-gofmt-por-defecto-y-permitir-excepciones-puntuales" class="level3" data-number="57.4.2">
-<h3 data-number="57.4.2" class="anchored" data-anchor-id="utilizar-gofmt-por-defecto-y-permitir-excepciones-puntuales"><span class="header-section-number">57.4.2</span> Utilizar <code>gofmt</code> por defecto y permitir excepciones puntuales</h3>
+</section><section id="utilizar-gofmt-por-defecto-y-permitir-excepciones-puntuales" class="level3" data-number="60.4.2"><h3 data-number="60.4.2" class="anchored" data-anchor-id="utilizar-gofmt-por-defecto-y-permitir-excepciones-puntuales">
+<span class="header-section-number">60.4.2</span> Utilizar <code>gofmt</code> por defecto y permitir excepciones puntuales</h3>
 <p>Se descarta porque cualquier ejecución automática puede destruir esas excepciones. Obliga además a introducir mecanismos adicionales para identificar qué bloques deben preservarse.</p>
-</section>
-<section id="desactivar-únicamente-el-formateo-al-guardar" class="level3" data-number="57.4.3">
-<h3 data-number="57.4.3" class="anchored" data-anchor-id="desactivar-únicamente-el-formateo-al-guardar"><span class="header-section-number">57.4.3</span> Desactivar únicamente el formateo al guardar</h3>
+</section><section id="desactivar-únicamente-el-formateo-al-guardar" class="level3" data-number="60.4.3"><h3 data-number="60.4.3" class="anchored" data-anchor-id="desactivar-únicamente-el-formateo-al-guardar">
+<span class="header-section-number">60.4.3</span> Desactivar únicamente el formateo al guardar</h3>
 <p>Es insuficiente. El mismo problema puede aparecer mediante <code>go fmt</code>, <code>gofmt</code>, tareas de build, acciones del editor, agentes o pipelines de integración.</p>
-</section>
-</section>
-<section id="consecuencias" class="level2" data-number="57.5">
-<h2 data-number="57.5" class="anchored" data-anchor-id="consecuencias"><span class="header-section-number">57.5</span> Consecuencias</h2>
+</section></section><section id="consecuencias" class="level2" data-number="60.5"><h2 data-number="60.5" class="anchored" data-anchor-id="consecuencias">
+<span class="header-section-number">60.5</span> Consecuencias</h2>
 <p>El código Go de IASI puede utilizar indentación, alineación y espacios de manera deliberada cuando ayuden a expresar su estructura.</p>
 <p>Los editores y agentes que trabajen sobre el código no deben ejecutar formateadores automáticos de Go salvo decisión explícita que modifique este EDR.</p>
 <p>Las pipelines de build y validación no deben asumir que <code>gofmt</code> forma parte de los criterios de aceptación del código.</p>
 <p>El formato pasa a revisarse como parte de la legibilidad del código, no como conformidad automática con la salida de una herramienta.</p>
 <p>El código generado o mantenido externamente puede conservar el formato impuesto por su generador o por su fuente original cuando no sea propiedad del proyecto.</p>
-</section>
-<section id="principios-derivados" class="level2" data-number="57.6">
-<h2 data-number="57.6" class="anchored" data-anchor-id="principios-derivados"><span class="header-section-number">57.6</span> Principios derivados</h2>
+</section><section id="principios-derivados" class="level2" data-number="60.6"><h2 data-number="60.6" class="anchored" data-anchor-id="principios-derivados">
+<span class="header-section-number">60.6</span> Principios derivados</h2>
 <blockquote class="blockquote">
 <p><strong>El formato del código puede expresar estructura.</strong></p>
 </blockquote>
@@ -280,10 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -682,16 +648,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../../edr/70-quality/EDR-70003.html" class="pagination-link" aria-label="Regenerar de forma determinista los artefactos derivados">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Regenerar de forma determinista los artefactos derivados</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">59</span>  <span class="chapter-title">Regenerar de forma determinista los artefactos derivados</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../edr/70-quality/EDR-70005.html" class="pagination-link" aria-label="Separar contenido derivable y contenido de autor en artefactos regenerables">
-        <span class="nav-page-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Separar contenido derivable y contenido de autor en artefactos regenerables</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">61</span>  <span class="chapter-title">Separar contenido derivable y contenido de autor en artefactos regenerables</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -701,4 +665,5 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
-</body></html>
+</body>
+</html>
